@@ -8,6 +8,6 @@ create table TBT_APARELHOS(
     FK_ID_MODELO int not null,
     FK_ID_LINHA int not null,
     primary key(ID_APARELHO),
-    foreign key(FK_ID_MODELO) references TBT_MODELOS_CELULAR(ID_MODELO),
-    foreign key(FK_ID_LINHA) references TBT_LINHAS(ID_LINHA)
+    foreign key(FK_ID_MODELO) references TBT_MODELOS_DE_CELULAR(ID_MODELO),
+    foreign key(FK_ID_LINHA) references TBT_LINHAS_TELEFONICAS(ID_LINHA) 
 );
