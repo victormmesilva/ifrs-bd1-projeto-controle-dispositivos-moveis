@@ -7,3 +7,4 @@ insert into TBT_MARCAS_DE_CELULAR(ID_MARCA,NOME_MARCA) values (null,'ALCATEL');
 insert into TBT_MARCAS_DE_CELULAR(ID_MARCA,NOME_MARCA) values (null,'APPLE');
 insert into TBT_MARCAS_DE_CELULAR(ID_MARCA,NOME_MARCA) values (null,'ASUS');
 insert into TBT_MARCAS_DE_CELULAR(ID_MARCA,NOME_MARCA) values (null,'QUANTUM');
+insert into TBT_MARCAS_DE_CELULAR(ID_MARCA,NOME_MARCA) values (null,'SONY');
