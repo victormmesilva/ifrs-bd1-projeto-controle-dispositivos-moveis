@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace ProJeto_Banco_de_Dados.Classes
 {
-    class Bairros
+    class Cargos
     {
         public int ID { get; set; }
-        public String Nome { get; set; }
-        public Cidades Cidade { get; set; }
+        public Generos Genero { get; set; }
 
-        public Bairros(int ID, string Nome, Cidades Cidade)
+        public Cargos(int ID, Generos Genero)
         {
             this.ID = ID;
-            this.Nome = Nome;
-            this.Cidade = Cidade;
+            this.Genero = Genero;
         }
 
         
+
+
+
+
     }
 }

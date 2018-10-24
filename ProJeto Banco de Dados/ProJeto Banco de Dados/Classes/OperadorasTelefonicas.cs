@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProJeto_Banco_de_Dados.Classes
 {
-    class Bairros
+    class OperadorasTelefonicas
     {
         public int ID { get; set; }
-        public String Nome { get; set; }
-        public Cidades Cidade { get; set; }
+        public String Operadora { get; set; }
 
-        public Bairros(int ID, string Nome, Cidades Cidade)
+        public OperadorasTelefonicas(int ID, string Operadora)
         {
             this.ID = ID;
-            this.Nome = Nome;
-            this.Cidade = Cidade;
+            this.Operadora = Operadora;
         }
 
         
+
+
     }
 }

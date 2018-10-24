@@ -12,7 +12,7 @@ namespace ProJeto_Banco_de_Dados.Classes
         public String Nome { get; set; }
         public Bairros Bairro { get; set; }
 
-        public Ruas(int iD, string Nome, Bairros Bairro)
+        public Ruas(int ID, string Nome, Bairros Bairro)
         {
             this.ID = ID;
             this.Nome = Nome;
