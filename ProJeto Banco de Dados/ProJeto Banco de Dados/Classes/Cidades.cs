@@ -11,8 +11,19 @@ namespace ProJeto_Banco_de_Dados.Classes
         public String Nome { get; set; }
         public int ID { get; set; }
         public int DDD { get; set; }
-        public Estados estado { get; set; }
-        public Pais Pais { get; set; }
+        public Estados Estado { get; set; }
+       
+
+        public Cidades(string Nome, int ID, int DDD, Estados Estado)
+        {
+            this.Nome = Nome;
+            this.ID   = ID;
+            this.DDD  = DDD;
+            this.Estado = Estado;
+            
+        }
+
+       
 
 
     }
