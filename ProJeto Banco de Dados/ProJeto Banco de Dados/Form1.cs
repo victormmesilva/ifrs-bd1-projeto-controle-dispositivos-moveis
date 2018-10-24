@@ -16,5 +16,10 @@ namespace ProJeto_Banco_de_Dados
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
