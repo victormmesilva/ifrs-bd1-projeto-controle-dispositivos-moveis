@@ -13,6 +13,10 @@ namespace ProJeto_Banco_de_Dados
 {
     public partial class Form1 : Form
     {
+        private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        MySqlConnection objConexao = null;
+        MySqlCommand objcomando = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,16 +30,28 @@ namespace ProJeto_Banco_de_Dados
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listaGrid();
+        }
+
+        public void listaGrid()
+        {
+            string select = "select * from view_funcionarios";
+            objConexao = new MySqlConnection(_conection);
+            objcomando = new MySqlCommand(select, objConexao);
+
             try
             {
-                MySqlConnection objConexao = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root");
-                objConexao.Open();
-                MessageBox.Show("conectado");
-                objConexao.Close();
+                MySqlDataAdapter objAdp = new MySqlDataAdapter(objcomando);
+                DataTable consultaView = new DataTable();
+                objAdp.Fill(consultaView);
+
+                dgView.DataSource = consultaView;
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("não conectado");
             }
+
         }
     }
 }
