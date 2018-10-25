@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Conexao\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,9 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Bairros.cs" />
+    <Compile Include="Classes\Cargos.cs" />
     <Compile Include="Classes\Cidades.cs" />
     <Compile Include="Classes\Estados.cs" />
+    <Compile Include="Classes\Generos.cs" />
+    <Compile Include="Classes\LinhasTelefonicas.cs" />
+    <Compile Include="Classes\MarcasDeCelular.cs" />
+    <Compile Include="Classes\ModelosDeCelular.cs" />
+    <Compile Include="Classes\OperadorasTelefonicas.cs" />
     <Compile Include="Classes\Ruas.cs" />
+    <Compile Include="Classes\TiposDeChip.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
