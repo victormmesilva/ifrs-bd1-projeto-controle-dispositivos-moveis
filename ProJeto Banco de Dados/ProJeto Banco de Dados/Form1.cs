@@ -53,5 +53,31 @@ namespace ProJeto_Banco_de_Dados
             }
 
         }
+
+        private void casdastroCelularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 cadastro_celular = new Form2();
+            cadastro_celular.Show();
+        }
+
+        private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
