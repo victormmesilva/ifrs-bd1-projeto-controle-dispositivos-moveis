@@ -13,9 +13,7 @@ namespace ProJeto_Banco_de_Dados
 {
     public partial class Form1 : Form
     {
-        private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
-        MySqlConnection objConexao = null;
-        MySqlCommand objcomando = null;
+        
 
         public Form1()
         {
@@ -30,29 +28,9 @@ namespace ProJeto_Banco_de_Dados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listaGrid();
+           
         }
 
-        public void listaGrid()
-        {
-            string select = "select * from view_funcionarios";
-            objConexao = new MySqlConnection(_conection);
-            objcomando = new MySqlCommand(select, objConexao);
-
-            try
-            {
-                MySqlDataAdapter objAdp = new MySqlDataAdapter(objcomando);
-                DataTable consultaView = new DataTable();
-                objAdp.Fill(consultaView);
-
-                dgView.DataSource = consultaView;
-            }
-            catch
-            {
-                MessageBox.Show("não conectado");
-            }
-
-        }
 
         private void casdastroCelularToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -78,6 +56,17 @@ namespace ProJeto_Banco_de_Dados
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarFuncionario consulta_funcionario = new ConsultarFuncionario();
+            consulta_funcionario.Show();
         }
     }
 }

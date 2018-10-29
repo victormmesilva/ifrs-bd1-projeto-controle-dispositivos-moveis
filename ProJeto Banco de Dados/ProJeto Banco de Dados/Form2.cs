@@ -89,5 +89,10 @@ namespace ProJeto_Banco_de_Dados
 
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
