@@ -61,6 +61,12 @@
     <Compile Include="Classes\OperadorasTelefonicas.cs" />
     <Compile Include="Classes\Ruas.cs" />
     <Compile Include="Classes\TiposDeChip.cs" />
+    <Compile Include="ConsultarCelular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarCelular.Designer.cs">
+      <DependentUpon>ConsultarCelular.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConsultarCelular.resx">
+      <DependentUpon>ConsultarCelular.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultarFuncionario.resx">
       <DependentUpon>ConsultarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

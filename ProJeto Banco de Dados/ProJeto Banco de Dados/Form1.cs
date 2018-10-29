@@ -51,11 +51,13 @@ namespace ProJeto_Banco_de_Dados
         {
             Form2 cadastro_celular = new Form2();
             cadastro_celular.Show();
+            
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ConsultarCelular consultar_celular = new ConsultarCelular();
+            consultar_celular.Show();
         }
 
         private void dgView_CellContentClick(object sender, DataGridViewCellEventArgs e)
