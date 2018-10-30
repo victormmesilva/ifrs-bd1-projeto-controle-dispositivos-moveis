@@ -82,44 +82,45 @@ namespace ProJeto_Banco_de_Dados
                 // var rowsAffecteds = comando_insert.ExecuteNonQuery();
                 meu_reader = comando_consultar.ExecuteReader();
 
-                if (meu_reader.HasRows)
+                if (meu_reader.Read())
                 {
+                    string nome = meu_reader.GetString("nome_Aparelho");
+                    txtNome.Text = nome.ToString();
+                    string senha = meu_reader.GetString("SENHA_APARELHO");
+                    txtSenha.Text = senha.ToString();
+                    string imei = meu_reader.GetString("IMEI");
+                    txtImei.Text = imei.ToString();
+
+                    string numeroSerie = meu_reader.GetString("NUMERO_DE_SERIE");
+                    txtNumeroSerie.Text = numeroSerie.ToString();
+                    string macAddres = meu_reader.GetString("MAC_ADDRESS");
+                    txtMacAdress.Text = macAddres.ToString();
+                    string modelo = meu_reader.GetString("FK_ID_MODELO");
+                    txtModelo.Text = modelo.ToString();
+
+                    string linha = meu_reader.GetString("FK_ID_LINHA");
+                    txtLinha.Text = linha.ToString();
+                    string funcionario = meu_reader.GetString("FK_ID_FUNCIONARIO");
+                    txtFuncionario.Text = funcionario.ToString();
+
+                    byte[] imagem = (byte[])(meu_reader["fotos"]);
+
+
+                    if (imagem == null)
+                    {
+
+                        pictureBox1.Image = null;
+
+                    }
+                    else
+                    {
+                        MemoryStream msTream = new MemoryStream(imagem);
+                        pictureBox1.Image = System.Drawing.Image.FromStream(msTream);
+
+                    }
 
                 }
 
-                string nome = meu_reader.GetString("nome_Aparelho");
-                txtNome.Text = nome.ToString();
-                string senha = meu_reader.GetString("SENHA_APARELHO");
-                txtSenha.Text = senha.ToString();
-                string imei = meu_reader.GetString("IMEI");
-                txtImei.Text = imei.ToString();
-
-                string numeroSerie = meu_reader.GetString("NUMERO_DE_SERIE");
-                txtNumeroSerie.Text = numeroSerie.ToString();
-                string macAddres = meu_reader.GetString("MAC_ADDRESS");
-                txtMacAdress.Text = macAddres.ToString();
-                string modelo = meu_reader.GetString("FK_ID_MODELO");
-                txtModelo.Text = modelo.ToString();
-
-                string linha = meu_reader.GetString("FK_ID_LINHA");
-                txtLinha.Text = linha.ToString();
-                string funcionario = meu_reader.GetString("FK_ID_FUNCIONARIO");
-                txtFuncionario.Text = funcionario.ToString();
-
-                byte[] imagem = (byte[])(meu_reader["fotos"]);
-
-
-                if (imagem == null) {
-
-                    pictureBox1.Image = null;
-
-                }
-                else
-                {
-                    MemoryStream msTream = new MemoryStream(imagem);
-                    pictureBox1.Image = System.Drawing.Image.FromStream(msTream);
-
-                }
 
 
 
