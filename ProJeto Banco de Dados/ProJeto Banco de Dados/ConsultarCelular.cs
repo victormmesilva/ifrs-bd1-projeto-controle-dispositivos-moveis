@@ -84,8 +84,8 @@ namespace ProJeto_Banco_de_Dados
 
                 if (meu_reader.Read())
                 {
-                    string nome = meu_reader.GetString("nome_Aparelho");
-                    txtNome.Text = nome.ToString();
+                    //string nome = meu_reader.GetString("nome_Aparelho");
+                    //txtNome.Text = nome.ToString();
                     string senha = meu_reader.GetString("SENHA_APARELHO");
                     txtSenha.Text = senha.ToString();
                     string imei = meu_reader.GetString("IMEI");
@@ -103,7 +103,7 @@ namespace ProJeto_Banco_de_Dados
                     string funcionario = meu_reader.GetString("FK_ID_FUNCIONARIO");
                     txtFuncionario.Text = funcionario.ToString();
 
-                    byte[] imagem = (byte[])(meu_reader["fotos"]);
+                    byte[] imagem = (byte[])(meu_reader["FOTO"]);
 
 
                     if (imagem == null)
