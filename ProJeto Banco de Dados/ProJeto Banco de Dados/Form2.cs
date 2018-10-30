@@ -49,7 +49,7 @@ namespace ProJeto_Banco_de_Dados
             BinaryReader br = new BinaryReader(fstream);
             imagem_byti = br.ReadBytes((int)fstream.Length);
 
-            string insert = "INSERT INTO tbt_aparelhos (SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO,fotos,nome_Aparelho) VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO,@FK_ID_LINHA,@FK_ID_FUNCIONARIO,@fotos,@nome_Aparelho)";
+            string insert = "INSERT INTO tbt_aparelhos (SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO,fotos) VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO,@FK_ID_LINHA,@FK_ID_FUNCIONARIO,@fotos)";
             objConexao = new MySqlConnection(_conection);
             comando_insert = new MySqlCommand(insert, objConexao);
             MySqlDataReader meu_reader;
@@ -66,7 +66,7 @@ namespace ProJeto_Banco_de_Dados
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_LINHA", txtLinha.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_FUNCIONARIO", txtFuncionario.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@fotos", imagem_byti));
-                comando_insert.Parameters.Add(new MySqlParameter("@nome_Aparelho", txtNome.Text));
+               // comando_insert.Parameters.Add(new MySqlParameter("@nome_Aparelho", txtNome.Text));
 
 
                // var rowsAffecteds = comando_insert.ExecuteNonQuery();
