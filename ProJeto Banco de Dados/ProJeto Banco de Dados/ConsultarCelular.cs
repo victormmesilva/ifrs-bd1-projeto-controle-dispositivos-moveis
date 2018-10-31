@@ -69,7 +69,7 @@ namespace ProJeto_Banco_de_Dados
            
             //string consultar_celular = "select * from tbt_aparelhos WHERER ID_APARELHO = '@filtro'";
             objConexao = new MySqlConnection(_conection);
-            comando_consultar = new MySqlCommand("SELECT * FROM tbt_aparelhos where ID_APARELHO = @filtro", objConexao);
+            comando_consultar = new MySqlCommand("select AP.SENHA_APARELHO,AP.IMEI,AP.NUMERO_DE_SERIE,AP.MAC_ADDRESS,AP.FK_ID_MODELO,AP.FK_ID_LINHA,FU.NOME_COMPLETO,AP.FOTO from  tbt_funcionarios FU INNER JOIN tbt_aparelhos AP ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO where ID_APARELHO = @filtro", objConexao);
             MySqlDataReader meu_reader;
 
             try
@@ -100,7 +100,7 @@ namespace ProJeto_Banco_de_Dados
 
                     string linha = meu_reader.GetString("FK_ID_LINHA");
                     txtLinha.Text = linha.ToString();
-                    string funcionario = meu_reader.GetString("FK_ID_FUNCIONARIO");
+                    string funcionario = meu_reader.GetString("NOME_COMPLETO");
                     txtFuncionario.Text = funcionario.ToString();
 
                     byte[] imagem = (byte[])(meu_reader["FOTO"]);
@@ -139,6 +139,11 @@ namespace ProJeto_Banco_de_Dados
 
 
 
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            ConsultarCelular.ActiveForm.Close();
         }
     }
 }
