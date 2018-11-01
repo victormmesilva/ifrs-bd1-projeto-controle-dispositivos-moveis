@@ -94,5 +94,10 @@ namespace ProJeto_Banco_de_Dados
         {
 
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Form2.ActiveForm.Close();
+        }
     }
 }

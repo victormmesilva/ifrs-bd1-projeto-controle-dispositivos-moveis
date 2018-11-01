@@ -1,4 +1,6 @@
-﻿namespace ProJeto_Banco_de_Dados
+﻿using System;
+
+namespace ProJeto_Banco_de_Dados
 {
     partial class Form2
     {
@@ -245,6 +247,8 @@
             this.PerformLayout();
 
         }
+
+       
 
         #endregion
 
