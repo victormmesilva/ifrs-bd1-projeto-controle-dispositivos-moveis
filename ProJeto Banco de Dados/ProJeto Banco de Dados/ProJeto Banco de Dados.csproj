@@ -61,6 +61,7 @@
     <Compile Include="Classes\OperadorasTelefonicas.cs" />
     <Compile Include="Classes\Ruas.cs" />
     <Compile Include="Classes\TiposDeChip.cs" />
+    <Compile Include="Classes\Conexao.cs" />
     <Compile Include="ConsultarCelular.cs">
       <SubType>Form</SubType>
     </Compile>
