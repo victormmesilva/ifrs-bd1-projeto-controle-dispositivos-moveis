@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProJeto_Banco_de_Dados.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,9 @@ namespace ProJeto_Banco_de_Dados
 {
     public partial class ConsultarFuncionario : Form
     {
-        private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
-        MySqlConnection objConexao = null;
-        MySqlCommand objcomando = null;
+        //private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        //MySqlConnection objConexao = null;
+        //MySqlCommand objcomando = null;
 
         public ConsultarFuncionario()
         {
@@ -29,13 +30,18 @@ namespace ProJeto_Banco_de_Dados
 
         public void listaGrid()
         {
+            Conexao con = new Conexao();
+            MySqlConnection conectar = con.ObjConexao();
+
             string select = "select * from view_funcionarios";
-            objConexao = new MySqlConnection(_conection);
-            objcomando = new MySqlCommand(select, objConexao);
+
+            MySqlCommand comando_consultar = con.comando_consultar(select, conectar);
+            //objConexao = new MySqlConnection(_conection);
+            //objcomando = new MySqlCommand(select, objConexao);
 
             try
             {
-                MySqlDataAdapter objAdp = new MySqlDataAdapter(objcomando);
+                MySqlDataAdapter objAdp = new MySqlDataAdapter(comando_consultar);
                 DataTable consultaView = new DataTable();
                 objAdp.Fill(consultaView);
 
@@ -44,6 +50,11 @@ namespace ProJeto_Banco_de_Dados
             catch
             {
                 MessageBox.Show("não conectado");
+            }
+            finally
+            {
+                con.close(conectar);
+
             }
 
         }

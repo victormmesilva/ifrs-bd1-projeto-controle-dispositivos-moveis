@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProJeto_Banco_de_Dados.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,9 @@ namespace ProJeto_Banco_de_Dados
 {
     public partial class Form2 : Form
     {
-        private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
-        MySqlConnection objConexao = null;
-        MySqlCommand comando_insert = null;
+        //private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        //MySqlConnection objConexao = null;
+        //MySqlCommand comando_insert = null;
 
         public Form2()
         {
@@ -49,15 +50,25 @@ namespace ProJeto_Banco_de_Dados
             BinaryReader br = new BinaryReader(fstream);
             imagem_byti = br.ReadBytes((int)fstream.Length);
 
+
+
+            Conexao con = new Conexao();
+            MySqlConnection conectar = con.ObjConexao();
+
             string insert = "INSERT INTO tbt_aparelhos (SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO,FOTO) VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO,@FK_ID_LINHA,@FK_ID_FUNCIONARIO,@FOTO)";
-            objConexao = new MySqlConnection(_conection);
-            comando_insert = new MySqlCommand(insert, objConexao);
+
+            MySqlCommand comando_insert = con.comando_consultar(insert, conectar);
+
+            //objConexao = new MySqlConnection(_conection);
+            //comando_insert = new MySqlCommand(insert, objConexao);
             MySqlDataReader meu_reader;
             
             try
             {
-                objConexao.Open();
-               // comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", null));
+                con.open(conectar);
+                // comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", null));
+
+
                 comando_insert.Parameters.Add(new MySqlParameter("@SENHA_APARELHO", txtSenha.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@IMEI", txtImei.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@NUMERO_DE_SERIE", txtNumeroSerie.Text));
@@ -82,7 +93,7 @@ namespace ProJeto_Banco_de_Dados
             }
             finally
             {
-                objConexao.Close();
+                con.close(conectar);
 
             }
 

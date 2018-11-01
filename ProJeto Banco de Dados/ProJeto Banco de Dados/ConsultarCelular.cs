@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProJeto_Banco_de_Dados.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,11 @@ namespace ProJeto_Banco_de_Dados
 {
     public partial class ConsultarCelular : Form
     {
-        private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
-        MySqlConnection objConexao = null;
-        MySqlCommand comando_consultar = null;
+        //private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        //MySqlConnection objConexao = null;
+        //MySqlCommand comando_consultar = null;
 
+       
         public ConsultarCelular()
         {
             InitializeComponent();
@@ -65,18 +67,23 @@ namespace ProJeto_Banco_de_Dados
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            Conexao con = new Conexao();
+            MySqlConnection conectar = con.ObjConexao();
+            string comando = "select AP.SENHA_APARELHO,AP.IMEI,AP.NUMERO_DE_SERIE,AP.MAC_ADDRESS,AP.FK_ID_MODELO,AP.FK_ID_LINHA,FU.NOME_COMPLETO,AP.FOTO from  tbt_funcionarios FU INNER JOIN tbt_aparelhos AP ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO where ID_APARELHO = @filtro";
+            //con.objConexao = new MySqlConnection();
+            MySqlCommand comando_consultar = con.comando_consultar(comando, conectar);
 
-           
+
             //string consultar_celular = "select * from tbt_aparelhos WHERER ID_APARELHO = '@filtro'";
-            objConexao = new MySqlConnection(_conection);
-            comando_consultar = new MySqlCommand("select AP.SENHA_APARELHO,AP.IMEI,AP.NUMERO_DE_SERIE,AP.MAC_ADDRESS,AP.FK_ID_MODELO,AP.FK_ID_LINHA,FU.NOME_COMPLETO,AP.FOTO from  tbt_funcionarios FU INNER JOIN tbt_aparelhos AP ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO where ID_APARELHO = @filtro", objConexao);
+            // con.objConexao = new MySqlConnection();
             MySqlDataReader meu_reader;
 
             try
             {
-                objConexao.Open();
-
+                con.open(conectar);
                 comando_consultar.Parameters.Add(new MySqlParameter("@filtro", txtFiltro.Text.Trim()));
+
+
                 // comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", null));
 
                 // var rowsAffecteds = comando_insert.ExecuteNonQuery();
@@ -132,7 +139,7 @@ namespace ProJeto_Banco_de_Dados
             }
             finally
             {
-                objConexao.Close();
+                con.close(conectar);
 
             }
 
