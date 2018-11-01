@@ -18,12 +18,12 @@ namespace ProJeto_Banco_de_Dados.Classes
             return objConexao;
         }
 
-        public MySqlCommand comando_consultar (string comando, MySqlConnection conectar)
+        public MySqlCommand comando_banco (string comando, MySqlConnection conectar)
         {
 
-            MySqlCommand comando_consultar = new MySqlCommand(comando, conectar);
+            MySqlCommand comando_banco = new MySqlCommand(comando, conectar);
             
-            return comando_consultar;
+            return comando_banco;
         }
         public MySqlConnection open(MySqlConnection ObjConexao)
         {

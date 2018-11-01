@@ -52,12 +52,12 @@ namespace ProJeto_Banco_de_Dados
 
 
 
-            Conexao con = new Conexao();
-            MySqlConnection conectar = con.ObjConexao();
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao(); // chamando o metodo de conexao e atribuindo no conectar o retorno do metodo
 
             string insert = "INSERT INTO tbt_aparelhos (SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO,FOTO) VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO,@FK_ID_LINHA,@FK_ID_FUNCIONARIO,@FOTO)";
 
-            MySqlCommand comando_insert = con.comando_consultar(insert, conectar);
+            MySqlCommand comando_insert = con.comando_banco(insert, conectar); //chamando metodo comando_consultar do mysql e mandando o camando e a nonexao
 
             //objConexao = new MySqlConnection(_conection);
             //comando_insert = new MySqlCommand(insert, objConexao);
@@ -65,8 +65,8 @@ namespace ProJeto_Banco_de_Dados
             
             try
             {
-                con.open(conectar);
-                // comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", null));
+                con.open(conectar);// abrindo conexao
+                
 
 
                 comando_insert.Parameters.Add(new MySqlParameter("@SENHA_APARELHO", txtSenha.Text));
@@ -77,10 +77,10 @@ namespace ProJeto_Banco_de_Dados
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_LINHA", txtLinha.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_FUNCIONARIO", txtFuncionario.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@FOTO", imagem_byti));
+
                // comando_insert.Parameters.Add(new MySqlParameter("@nome_Aparelho", txtNome.Text));
-
-
                // var rowsAffecteds = comando_insert.ExecuteNonQuery();
+
                 meu_reader = comando_insert.ExecuteReader();
 
                 MessageBox.Show("Cadastro Salvo");

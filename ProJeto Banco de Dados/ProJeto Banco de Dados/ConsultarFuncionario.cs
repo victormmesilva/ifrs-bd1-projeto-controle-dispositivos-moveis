@@ -35,7 +35,7 @@ namespace ProJeto_Banco_de_Dados
 
             string select = "select * from view_funcionarios";
 
-            MySqlCommand comando_consultar = con.comando_consultar(select, conectar);
+            MySqlCommand comando_consultar = con.comando_banco(select, conectar);
             //objConexao = new MySqlConnection(_conection);
             //objcomando = new MySqlCommand(select, objConexao);
 

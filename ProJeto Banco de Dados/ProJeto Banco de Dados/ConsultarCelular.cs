@@ -71,7 +71,7 @@ namespace ProJeto_Banco_de_Dados
             MySqlConnection conectar = con.ObjConexao();
             string comando = "select AP.SENHA_APARELHO,AP.IMEI,AP.NUMERO_DE_SERIE,AP.MAC_ADDRESS,AP.FK_ID_MODELO,AP.FK_ID_LINHA,FU.NOME_COMPLETO,AP.FOTO from  tbt_funcionarios FU INNER JOIN tbt_aparelhos AP ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO where ID_APARELHO = @filtro";
             //con.objConexao = new MySqlConnection();
-            MySqlCommand comando_consultar = con.comando_consultar(comando, conectar);
+            MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
 
 
             //string consultar_celular = "select * from tbt_aparelhos WHERER ID_APARELHO = '@filtro'";
