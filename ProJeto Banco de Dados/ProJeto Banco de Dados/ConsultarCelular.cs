@@ -109,22 +109,22 @@ namespace ProJeto_Banco_de_Dados
                     txtLinha.Text = linha.ToString();
                     string funcionario = meu_reader.GetString("NOME_COMPLETO");
                     txtFuncionario.Text = funcionario.ToString();
-
-                    byte[] imagem = (byte[])(meu_reader["FOTO"]);
-
-
-                    if (imagem == null)
+                    try
                     {
-
-                        pictureBox1.Image = null;
-
-                    }
-                    else
-                    {
+                        byte[] imagem = (byte[])(meu_reader["FOTO"]);
                         MemoryStream msTream = new MemoryStream(imagem);
                         pictureBox1.Image = System.Drawing.Image.FromStream(msTream);
 
+
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Celular sem Foto");
+                    }
+
+
+
+                    
 
                 }
 
