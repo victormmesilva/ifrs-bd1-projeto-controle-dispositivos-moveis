@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProJeto_Banco_de_Dados.Classes;
 
 namespace ProJeto_Banco_de_Dados
 {
@@ -20,10 +21,10 @@ namespace ProJeto_Banco_de_Dados
             InitializeComponent();
         }
 
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Conexao.CriarBancoIniciar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,6 +70,8 @@ namespace ProJeto_Banco_de_Dados
         {
             ConsultarFuncionario consulta_funcionario = new ConsultarFuncionario();
             consulta_funcionario.Show();
+
+           
         }
     }
 }
