@@ -50,10 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Aparelhos.cs" />
     <Compile Include="Classes\Bairros.cs" />
     <Compile Include="Classes\Cargos.cs" />
     <Compile Include="Classes\Cidades.cs" />
     <Compile Include="Classes\Estados.cs" />
+    <Compile Include="Classes\Funcionarios.cs" />
     <Compile Include="Classes\Generos.cs" />
     <Compile Include="Classes\LinhasTelefonicas.cs" />
     <Compile Include="Classes\MarcasDeCelular.cs" />
