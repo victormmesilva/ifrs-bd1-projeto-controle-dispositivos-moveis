@@ -25,6 +25,9 @@ namespace ProJeto_Banco_de_Dados
         private void Form1_Load(object sender, EventArgs e)
         {
             Conexao.CriarBancoIniciar();
+            Conexao.CriarProcedure();
+            Conexao.CriarTabelas();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
