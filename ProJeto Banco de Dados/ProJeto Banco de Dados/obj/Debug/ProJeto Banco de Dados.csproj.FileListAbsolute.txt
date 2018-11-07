@@ -15,3 +15,20 @@ D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJe
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Form1.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.ConsultarCelular.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csprojAssemblyReference.cache
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.exe.config
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.exe
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.pdb
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\Google.Protobuf.dll
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\MySql.Data.xml
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\Google.Protobuf.xml
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csprojAssemblyReference.cache
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Properties.Resources.resources
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csproj.GenerateResource.cache
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csproj.CoreCompileInputs.cache
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csproj.CopyComplete
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.exe
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.pdb
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaConsultarCelular.resources
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaConsultarFuncionario.resources
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaInicial.resources
+C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaCadastrarAparelho.resources
