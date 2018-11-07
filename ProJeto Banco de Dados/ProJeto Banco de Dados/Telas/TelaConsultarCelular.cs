@@ -30,7 +30,7 @@ namespace ProJeto_Banco_de_Dados
         {
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
-            string comando = "select AP.SENHA_APARELHO,AP.IMEI,AP.NUMERO_DE_SERIE,AP.MAC_ADDRESS,AP.FK_ID_MODELO,AP.FK_ID_LINHA,FU.NOME_COMPLETO,AP.FOTO from  tbt_funcionarios FU INNER JOIN tbt_aparelhos AP ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO where ID_APARELHO = @filtro";
+            string comando = "select AP.SENHA_APARELHO,	AP.IMEI,AP.NUMERO_DE_SERIE,	AP.MAC_ADDRESS,	AP.FK_ID_MODELO,AP.FK_ID_LINHA,	FU.NOME_COMPLETO, MD.FOTO_APARELHO from  tbt_aparelhos AP  INNER JOIN tbt_funcionarios FU ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO INNER JOIN tbt_modelos_de_celular MD ON AP.FK_ID_MODELO = MD.ID_MODELO where ID_APARELHO = @filtro";
             //con.objConexao = new MySqlConnection();
             MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
 
@@ -72,7 +72,7 @@ namespace ProJeto_Banco_de_Dados
                     txtFuncionario.Text = funcionario.ToString();
                     try
                     {
-                        byte[] imagem = (byte[])(meu_reader["FOTO"]);
+                        byte[] imagem = (byte[])(meu_reader["FOTO_APARELHO"]);
                         MemoryStream msTream = new MemoryStream(imagem);
                         pictureBox1.Image = System.Drawing.Image.FromStream(msTream);
 

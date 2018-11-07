@@ -75,6 +75,7 @@ BEGIN
 		NUMERO_CHIP int not null,
 		FK_ID_MARCA_CELULAR int not null,
 		FK_ID_TIPO_CHIP int not null,
+		FOTO_APARELHO longblob,
 		primary key(ID_MODELO),
 		foreign key(FK_ID_MARCA_CELULAR) references TBT_MARCAS_DE_CELULAR(ID_MARCA),
 		foreign key(FK_ID_TIPO_CHIP) references TBT_TIPOS_DE_CHIP(ID_TIPO_CHIP)    
@@ -121,7 +122,6 @@ BEGIN
 		IMEI int not null,
 		NUMERO_DE_SERIE int not null,
 		MAC_ADDRESS varchar(12),
-		FOTO longblob,
 		FK_ID_MODELO int not null,
 		FK_ID_LINHA int not null,
 		FK_ID_FUNCIONARIO int,
