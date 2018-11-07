@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,17 @@ namespace ProJeto_Banco_de_Dados.Classes
     public class ModeloDeCelular
     {
         public int ID { get; set; }
-        public String NomeModelo { get; set; }
+        public String NomeModelo { 
+
+            set {
+                Conexao con = new Conexao();
+                MySqlConnection conectar = con.ObjConexao();
+                string comando = "select * from tbt_modelos where ";
+                //con.objConexao = new MySqlConnection();
+                MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
+                MySqlDataReader meu_reader;
+            }
+        }
         public int NumeroChip { get; set; }
         public MarcaDeCelular MarcaCelular { get; set; }
         public TipoDeChip TipoDeChip { get; set; }
@@ -23,6 +34,8 @@ namespace ProJeto_Banco_de_Dados.Classes
             this.MarcaCelular = MarcaCelular;
             this.TipoDeChip = TipoDeChip;
         }
+
+
 
       
 

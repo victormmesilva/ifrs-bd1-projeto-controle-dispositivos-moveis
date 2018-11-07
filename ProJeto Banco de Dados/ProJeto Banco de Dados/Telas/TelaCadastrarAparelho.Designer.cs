@@ -31,7 +31,6 @@ namespace ProJeto_Banco_de_Dados
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastrarAparelho));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtImagem = new System.Windows.Forms.TextBox();
             this.btnInserirImagem = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -44,24 +43,15 @@ namespace ProJeto_Banco_de_Dados
             this.label4 = new System.Windows.Forms.Label();
             this.txtMacAdress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtLinha = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.cbxLinha = new System.Windows.Forms.ComboBox();
+            this.cbxFuncionario = new System.Windows.Forms.ComboBox();
+            this.cbxModelo = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProJeto_Banco_de_Dados.Properties.Resources.logo_fotografia_1;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 262);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // txtImagem
             // 
@@ -164,13 +154,6 @@ namespace ProJeto_Banco_de_Dados
             this.label5.Text = "Modelo";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(443, 104);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(247, 20);
-            this.txtModelo.TabIndex = 15;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -180,13 +163,6 @@ namespace ProJeto_Banco_de_Dados
             this.label6.TabIndex = 16;
             this.label6.Text = "Linha";
             // 
-            // txtLinha
-            // 
-            this.txtLinha.Location = new System.Drawing.Point(269, 144);
-            this.txtLinha.Name = "txtLinha";
-            this.txtLinha.Size = new System.Drawing.Size(100, 20);
-            this.txtLinha.TabIndex = 17;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -195,13 +171,6 @@ namespace ProJeto_Banco_de_Dados
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Funcionario";
-            // 
-            // txtFuncionario
-            // 
-            this.txtFuncionario.Location = new System.Drawing.Point(375, 143);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(100, 20);
-            this.txtFuncionario.TabIndex = 19;
             // 
             // btnFechar
             // 
@@ -213,18 +182,54 @@ namespace ProJeto_Banco_de_Dados
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // Form2
+            // cbxLinha
+            // 
+            this.cbxLinha.FormattingEnabled = true;
+            this.cbxLinha.Location = new System.Drawing.Point(267, 144);
+            this.cbxLinha.Name = "cbxLinha";
+            this.cbxLinha.Size = new System.Drawing.Size(101, 21);
+            this.cbxLinha.TabIndex = 21;
+            this.cbxLinha.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cbxFuncionario
+            // 
+            this.cbxFuncionario.FormattingEnabled = true;
+            this.cbxFuncionario.Location = new System.Drawing.Point(375, 144);
+            this.cbxFuncionario.Name = "cbxFuncionario";
+            this.cbxFuncionario.Size = new System.Drawing.Size(121, 21);
+            this.cbxFuncionario.TabIndex = 22;
+            // 
+            // cbxModelo
+            // 
+            this.cbxModelo.FormattingEnabled = true;
+            this.cbxModelo.Location = new System.Drawing.Point(443, 104);
+            this.cbxModelo.Name = "cbxModelo";
+            this.cbxModelo.Size = new System.Drawing.Size(247, 21);
+            this.cbxModelo.TabIndex = 23;
+            this.cbxModelo.SelectedIndexChanged += new System.EventHandler(this.cbxModelo_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProJeto_Banco_de_Dados.Properties.Resources.logo_fotografia_1;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(214, 262);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // TelaCadastrarAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(702, 362);
+            this.Controls.Add(this.cbxModelo);
+            this.Controls.Add(this.cbxFuncionario);
+            this.Controls.Add(this.cbxLinha);
             this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.txtFuncionario);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtLinha);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMacAdress);
             this.Controls.Add(this.label4);
@@ -239,9 +244,10 @@ namespace ProJeto_Banco_de_Dados
             this.Controls.Add(this.txtImagem);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "TelaCadastrarAparelho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.TelaCadastrarAparelho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -265,11 +271,11 @@ namespace ProJeto_Banco_de_Dados
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMacAdress;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtLinha;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtFuncionario;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.ComboBox cbxLinha;
+        private System.Windows.Forms.ComboBox cbxFuncionario;
+        private System.Windows.Forms.ComboBox cbxModelo;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ProJeto_Banco_de_Dados.Classes;
+using ProJeto_Banco_de_Dados.Telas;
 
 namespace ProJeto_Banco_de_Dados
 {
@@ -75,6 +76,12 @@ namespace ProJeto_Banco_de_Dados
             consulta_funcionario.Show();
 
            
+        }
+
+        private void inserirFotoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IncluirFoto consultar_celular = new IncluirFoto();
+            consultar_celular.Show();
         }
     }
 }

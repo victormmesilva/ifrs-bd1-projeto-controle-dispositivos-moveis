@@ -113,5 +113,15 @@ namespace ProJeto_Banco_de_Dados
         {
             TelaConsultarCelular.ActiveForm.Close();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

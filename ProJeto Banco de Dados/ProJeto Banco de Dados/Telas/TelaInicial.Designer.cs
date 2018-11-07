@@ -37,6 +37,7 @@
             this.celularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoCadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirFotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.cadastroToolStripMenuItem,
             this.consultarToolStripMenuItem});
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
             // 
             // cadastroToolStripMenuItem
@@ -87,26 +88,34 @@
             // 
             this.celularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoCadastroToolStripMenuItem,
-            this.consultaToolStripMenuItem});
+            this.consultaToolStripMenuItem,
+            this.inserirFotoToolStripMenuItem});
             this.celularToolStripMenuItem.Name = "celularToolStripMenuItem";
-            this.celularToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.celularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.celularToolStripMenuItem.Text = "Celular";
             // 
             // novoCadastroToolStripMenuItem
             // 
             this.novoCadastroToolStripMenuItem.Name = "novoCadastroToolStripMenuItem";
-            this.novoCadastroToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.novoCadastroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoCadastroToolStripMenuItem.Text = "Novo Cadastro";
             this.novoCadastroToolStripMenuItem.Click += new System.EventHandler(this.novoCadastroToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
-            // Form1
+            // inserirFotoToolStripMenuItem
+            // 
+            this.inserirFotoToolStripMenuItem.Name = "inserirFotoToolStripMenuItem";
+            this.inserirFotoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inserirFotoToolStripMenuItem.Text = "Inserir Foto";
+            this.inserirFotoToolStripMenuItem.Click += new System.EventHandler(this.inserirFotoToolStripMenuItem_Click);
+            // 
+            // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +126,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "TelaInicial";
             this.Text = "Tele Sitem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -137,6 +146,7 @@
         private System.Windows.Forms.ToolStripMenuItem novoCadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inserirFotoToolStripMenuItem;
     }
 }
 
