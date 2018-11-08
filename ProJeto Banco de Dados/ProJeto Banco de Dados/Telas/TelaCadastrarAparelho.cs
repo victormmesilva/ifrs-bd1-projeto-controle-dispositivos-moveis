@@ -25,27 +25,142 @@ namespace ProJeto_Banco_de_Dados
             carregaComboLinha();
             carregaComboFuncionario();
             carregaComboModelo();
-
-
-
+            carregaComboDDD();
+            carregaComboDDI();
+            carregaComboOperadora();
+            carregaComboMarca();
         }
 
-        private void btnInserirImagem_Click(object sender, EventArgs e)
+        private void carregaComboMarca()
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "JPEG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|AllFiles(*.*)|*.*";
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao();
+            List<String> strList = new List<String>();
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+
+            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+            string comando = "SELECT * FROM TBT_MARCAS_DE_CELULAR";
+
+            MySqlCommand comando_marca = con.comando_banco(comando, conectar);
+
+            MySqlDataReader meu_reader;
+            con.open(conectar);
+            meu_reader = comando_marca.ExecuteReader();
+
+            int i = 0;
+            if (meu_reader.HasRows)
             {
-                string foto = dialog.FileName.ToString();
-                txtImagem.Text = foto;
-                pictureBox1.ImageLocation = foto;
-
+                while (meu_reader.Read())
+                {
+                    strList.Add(meu_reader.GetString("NOME_MARCA"));
+                    cbxMarca.Items.Add(strList[i++]);
+                }
             }
-
-
-
+            con.close(conectar);
         }
+
+        private void carregaComboOperadora()
+        {
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao();
+            List<String> strList = new List<String>();
+
+
+            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+            string comando = "SELECT * FROM TBT_OPERADORAS_TELEFONICAS";
+
+            MySqlCommand comando_operadora = con.comando_banco(comando, conectar);
+
+            MySqlDataReader meu_reader;
+            con.open(conectar);
+            meu_reader = comando_operadora.ExecuteReader();
+
+            int i = 0;
+            if (meu_reader.HasRows)
+            {
+                while (meu_reader.Read())
+                {
+                    strList.Add(meu_reader.GetString("NOME_OPERADORA"));
+                    cbxOperadora.Items.Add(strList[i++]);
+                }
+            }
+            con.close(conectar);
+        }
+
+        private void carregaComboDDI()
+        {
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao();
+            List<String> strList = new List<String>();
+
+
+            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+            string comando = " SELECT ID_PAIS, " +
+                             "        CONCAT(DDI, ' - ', NOME_PAIS) AS DDI " +  
+                             " FROM TBT_PAISES " +
+                             " ORDER BY NOME_PAIS ";
+
+            MySqlCommand comando_ddi = con.comando_banco(comando, conectar);
+
+            MySqlDataReader meu_reader;
+            con.open(conectar);
+            meu_reader = comando_ddi.ExecuteReader();
+
+            int i = 0;
+            if (meu_reader.HasRows)
+            {
+                while (meu_reader.Read())
+                {
+                    strList.Add(meu_reader.GetString("DDI"));
+                    cbxDDI.Items.Add(strList[i++]);
+                }
+            }
+            con.close(conectar);
+        }
+
+        private void carregaComboDDD()
+        {
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao();
+            List<String> strList = new List<String>();
+
+
+            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+            string comando = " SELECT ID_CIDADE, " +
+                             "        CONCAT(DDD, ' - ', NOME_CIDADE) AS DDD " +
+                             " FROM TBT_CIDADES " +
+                             " ORDER BY NOME_CIDADE ";
+
+            MySqlCommand comando_ddd = con.comando_banco(comando, conectar);
+
+            MySqlDataReader meu_reader;
+            con.open(conectar);
+            meu_reader = comando_ddd.ExecuteReader();
+
+            int i = 0;
+            if (meu_reader.HasRows)
+            {
+                while (meu_reader.Read())
+                {
+                    strList.Add(meu_reader.GetString("DDD"));
+                    cbxDDD.Items.Add(strList[i++]);
+                }
+            }
+            con.close(conectar);
+        }
+
+        //private void btnInserirImagem_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog dialog = new OpenFileDialog();
+        //    dialog.Filter = "JPEG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|AllFiles(*.*)|*.*";
+
+        //    if (dialog.ShowDialog() == DialogResult.OK)
+        //    {
+        //        string foto = dialog.FileName.ToString();
+        //        pictureBox1.ImageLocation = foto;
+
+        //    }
+        //}
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -119,14 +234,6 @@ namespace ProJeto_Banco_de_Dados
 
         }
 
-
-
-
-
-
-
-
-
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -151,7 +258,18 @@ namespace ProJeto_Banco_de_Dados
             List<String> strList = new List<String>();
 
 
-            string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
+                string comando = "select l.ID_LINHA, " +
+                                 "CONCAT('(',p.DDI,') ',c.DDD, ' ',l.NUMERO_TELEFONE) AS TELEFONE" +
+                                 " from tbt_linhas_telefonicas l " +
+                                 " LEFT JOIN tbt_aparelhos a " +
+                                 " ON l.ID_LINHA = a.FK_ID_LINHA " +
+                                 " INNER JOIN tbt_paises p " +
+                                 " ON p.ID_PAIS = l.FK_ID_PAIS " +
+                                 " INNER JOIN tbt_cidades c " +
+                                 " ON c.ID_CIDADE = l.FK_ID_CIDADE " +
+                                 " where a.FK_ID_LINHA IS NULL " +
+                                 " ORDER BY TELEFONE; ";
 
             MySqlCommand comando_LInha = con.comando_banco(comando, conectar);
 
@@ -160,12 +278,11 @@ namespace ProJeto_Banco_de_Dados
             meu_reader = comando_LInha.ExecuteReader();
 
             int i = 0;
-
             if (meu_reader.HasRows)
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("numero_telefone"));
+                    strList.Add(meu_reader.GetString("TELEFONE"));
                     cbxLinha.Items.Add(strList[i++]);
                 }
             }
@@ -274,8 +391,7 @@ namespace ProJeto_Banco_de_Dados
         }
 
         private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+        {            
             carregaFoto(cbxModelo.Text.Trim());
         }
     }
