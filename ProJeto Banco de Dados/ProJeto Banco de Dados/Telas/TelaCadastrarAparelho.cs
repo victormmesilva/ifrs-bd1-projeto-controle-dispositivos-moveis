@@ -24,7 +24,7 @@ namespace ProJeto_Banco_de_Dados
             InitializeComponent();
             carregaComboLinha();
             carregaComboFuncionario();
-            carregaComboModelo();
+            
             carregaComboDDD();
             carregaComboDDI();
             carregaComboOperadora();
@@ -318,23 +318,27 @@ namespace ProJeto_Banco_de_Dados
             con.close(conectar);
         }
 
-        private void carregaComboModelo()
+        private void carregaComboModelo(string filtro)
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
             List<String> strList = new List<String>();
 
 
-            string comando = "select nome_modelo from tbt_modelos_de_celular order by nome_modelo";
+            string comando = "select * from tbt_modelos_de_celular MD inner join tbt_marcas_de_celular MC on MC.ID_MARCA = MD.FK_ID_MARCA_CELULAR where NOME_MARCA= @filtro order by NOME_MARCA ";
 
             MySqlCommand comando_modelo = con.comando_banco(comando, conectar);
 
             MySqlDataReader meu_reader;
             con.open(conectar);
+            comando_modelo.Parameters.Add(new MySqlParameter("@filtro", filtro));
+
+
             meu_reader = comando_modelo.ExecuteReader();
 
             int i = 0;
-
+            strList.Clear();
+            cbxModelo.Items.Clear();
             if (meu_reader.HasRows)
             {
                 while (meu_reader.Read())
@@ -393,6 +397,13 @@ namespace ProJeto_Banco_de_Dados
         private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
         {            
             carregaFoto(cbxModelo.Text.Trim());
+        }
+
+        private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaComboModelo(cbxMarca.Text.Trim());
+            cbxModelo.Enabled = true;
+           
         }
     }
 }

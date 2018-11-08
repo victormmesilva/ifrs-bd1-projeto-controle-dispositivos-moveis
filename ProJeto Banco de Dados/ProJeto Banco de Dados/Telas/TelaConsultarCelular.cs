@@ -30,7 +30,18 @@ namespace ProJeto_Banco_de_Dados
         {
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
-            string comando = "select AP.SENHA_APARELHO,	AP.IMEI,AP.NUMERO_DE_SERIE,	AP.MAC_ADDRESS,	AP.FK_ID_MODELO,AP.FK_ID_LINHA,	FU.NOME_COMPLETO, MD.FOTO_APARELHO from  tbt_aparelhos AP  INNER JOIN tbt_funcionarios FU ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO INNER JOIN tbt_modelos_de_celular MD ON AP.FK_ID_MODELO = MD.ID_MODELO where ID_APARELHO = @filtro";
+            string comando = "select AP.SENHA_APARELHO,	" +
+                "AP.IMEI,AP.NUMERO_DE_SERIE,	" +
+                "AP.MAC_ADDRESS,	" +
+                "MD.NOME_MODELO,AP.FK_ID_LINHA,	" +
+                "FU.NOME_COMPLETO," +
+                " MD.FOTO_APARELHO " +
+                "from  tbt_aparelhos AP " +
+                " INNER JOIN tbt_funcionarios" +
+                " FU ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO " +
+                "INNER JOIN tbt_modelos_de_celular MD " +
+                "ON AP.FK_ID_MODELO = MD.ID_MODELO" +
+                " where ID_APARELHO = @filtro";
             //con.objConexao = new MySqlConnection();
             MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
 
@@ -63,7 +74,7 @@ namespace ProJeto_Banco_de_Dados
                     txtNumeroSerie.Text = numeroSerie.ToString();
                     string macAddres = meu_reader.GetString("MAC_ADDRESS");
                     txtMacAdress.Text = macAddres.ToString();
-                    string modelo = meu_reader.GetString("FK_ID_MODELO");
+                    string modelo = meu_reader.GetString("NOME_MODELO");
                     txtModelo.Text = modelo.ToString();
 
                     string linha = meu_reader.GetString("FK_ID_LINHA");

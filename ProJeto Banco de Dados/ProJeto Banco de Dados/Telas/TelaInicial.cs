@@ -28,6 +28,7 @@ namespace ProJeto_Banco_de_Dados
             Conexao.CriarBancoIniciar();
             Conexao.CriarProcedure();
             Conexao.CriarTabelas();
+            Conexao.insertDados();
 
         }
 

@@ -53,12 +53,12 @@ namespace ProJeto_Banco_de_Dados
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblOperadora = new System.Windows.Forms.Label();
-            this.cbxOperadora = new System.Windows.Forms.ComboBox();
-            this.lblDDI = new System.Windows.Forms.Label();
-            this.cbxDDI = new System.Windows.Forms.ComboBox();
-            this.lblDDD = new System.Windows.Forms.Label();
             this.cbxDDD = new System.Windows.Forms.ComboBox();
+            this.lblDDD = new System.Windows.Forms.Label();
+            this.cbxDDI = new System.Windows.Forms.ComboBox();
+            this.lblDDI = new System.Windows.Forms.Label();
+            this.cbxOperadora = new System.Windows.Forms.ComboBox();
+            this.lblOperadora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -201,6 +201,7 @@ namespace ProJeto_Banco_de_Dados
             // 
             // cbxModelo
             // 
+            this.cbxModelo.Enabled = false;
             this.cbxModelo.FormattingEnabled = true;
             this.cbxModelo.Location = new System.Drawing.Point(9, 80);
             this.cbxModelo.Name = "cbxModelo";
@@ -237,6 +238,7 @@ namespace ProJeto_Banco_de_Dados
             this.cbxMarca.Size = new System.Drawing.Size(156, 21);
             this.cbxMarca.TabIndex = 25;
             this.cbxMarca.Text = "SELECIONE";
+            this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.cbxMarca_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -287,41 +289,14 @@ namespace ProJeto_Banco_de_Dados
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados da Linha";
             // 
-            // lblOperadora
+            // cbxDDD
             // 
-            this.lblOperadora.AutoSize = true;
-            this.lblOperadora.Location = new System.Drawing.Point(146, 16);
-            this.lblOperadora.Name = "lblOperadora";
-            this.lblOperadora.Size = new System.Drawing.Size(57, 13);
-            this.lblOperadora.TabIndex = 22;
-            this.lblOperadora.Text = "Operadora";
-            // 
-            // cbxOperadora
-            // 
-            this.cbxOperadora.FormattingEnabled = true;
-            this.cbxOperadora.Location = new System.Drawing.Point(149, 31);
-            this.cbxOperadora.Name = "cbxOperadora";
-            this.cbxOperadora.Size = new System.Drawing.Size(121, 21);
-            this.cbxOperadora.TabIndex = 23;
-            this.cbxOperadora.Text = "SELECIONE";
-            // 
-            // lblDDI
-            // 
-            this.lblDDI.AutoSize = true;
-            this.lblDDI.Location = new System.Drawing.Point(6, 16);
-            this.lblDDI.Name = "lblDDI";
-            this.lblDDI.Size = new System.Drawing.Size(57, 13);
-            this.lblDDI.TabIndex = 24;
-            this.lblDDI.Text = "DDI - País";
-            // 
-            // cbxDDI
-            // 
-            this.cbxDDI.FormattingEnabled = true;
-            this.cbxDDI.Location = new System.Drawing.Point(9, 32);
-            this.cbxDDI.Name = "cbxDDI";
-            this.cbxDDI.Size = new System.Drawing.Size(121, 21);
-            this.cbxDDI.TabIndex = 25;
-            this.cbxDDI.Text = "SELECIONE";
+            this.cbxDDD.FormattingEnabled = true;
+            this.cbxDDD.Location = new System.Drawing.Point(9, 71);
+            this.cbxDDD.Name = "cbxDDD";
+            this.cbxDDD.Size = new System.Drawing.Size(121, 21);
+            this.cbxDDD.TabIndex = 27;
+            this.cbxDDD.Text = "SELECIONE";
             // 
             // lblDDD
             // 
@@ -332,14 +307,41 @@ namespace ProJeto_Banco_de_Dados
             this.lblDDD.TabIndex = 26;
             this.lblDDD.Text = "DDD - Região";
             // 
-            // cbxDDD
+            // cbxDDI
             // 
-            this.cbxDDD.FormattingEnabled = true;
-            this.cbxDDD.Location = new System.Drawing.Point(9, 71);
-            this.cbxDDD.Name = "cbxDDD";
-            this.cbxDDD.Size = new System.Drawing.Size(121, 21);
-            this.cbxDDD.TabIndex = 27;
-            this.cbxDDD.Text = "SELECIONE";
+            this.cbxDDI.FormattingEnabled = true;
+            this.cbxDDI.Location = new System.Drawing.Point(9, 32);
+            this.cbxDDI.Name = "cbxDDI";
+            this.cbxDDI.Size = new System.Drawing.Size(121, 21);
+            this.cbxDDI.TabIndex = 25;
+            this.cbxDDI.Text = "SELECIONE";
+            // 
+            // lblDDI
+            // 
+            this.lblDDI.AutoSize = true;
+            this.lblDDI.Location = new System.Drawing.Point(6, 16);
+            this.lblDDI.Name = "lblDDI";
+            this.lblDDI.Size = new System.Drawing.Size(57, 13);
+            this.lblDDI.TabIndex = 24;
+            this.lblDDI.Text = "DDI - País";
+            // 
+            // cbxOperadora
+            // 
+            this.cbxOperadora.FormattingEnabled = true;
+            this.cbxOperadora.Location = new System.Drawing.Point(149, 31);
+            this.cbxOperadora.Name = "cbxOperadora";
+            this.cbxOperadora.Size = new System.Drawing.Size(121, 21);
+            this.cbxOperadora.TabIndex = 23;
+            this.cbxOperadora.Text = "SELECIONE";
+            // 
+            // lblOperadora
+            // 
+            this.lblOperadora.AutoSize = true;
+            this.lblOperadora.Location = new System.Drawing.Point(146, 16);
+            this.lblOperadora.Name = "lblOperadora";
+            this.lblOperadora.Size = new System.Drawing.Size(57, 13);
+            this.lblOperadora.TabIndex = 22;
+            this.lblOperadora.Text = "Operadora";
             // 
             // TelaCadastrarAparelho
             // 

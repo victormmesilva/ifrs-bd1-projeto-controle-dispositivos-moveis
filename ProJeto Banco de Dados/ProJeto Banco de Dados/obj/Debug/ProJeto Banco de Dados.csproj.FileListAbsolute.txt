@@ -32,3 +32,4 @@ D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJe
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaInicial.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaCadastrarAparelho.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Telas.IncluirFoto.resources
+D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csprojAssemblyReference.cache

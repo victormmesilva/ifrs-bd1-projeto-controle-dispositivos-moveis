@@ -145,6 +145,7 @@
     <None Include="Recursos\logo-fotografia-1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recursos\InserirDados.txt" />
     <Content Include="Recursos\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

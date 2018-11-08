@@ -10,8 +10,8 @@ namespace ProJeto_Banco_de_Dados.Classes
 {
     public class Conexao
     {
-        private readonly string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=mysqladmin";
-        private readonly string _conection_criarBanco = "Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin";
+        private readonly string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        private readonly string _conection_criarBanco = "Server=localhost;port=3306;UId=root;Database=mysql; Pwd=root";
         private string fltro;
 
         public  MySqlConnection ObjConexao(){
@@ -48,7 +48,7 @@ namespace ProJeto_Banco_de_Dados.Classes
             try
             {
                 Conexao con = new Conexao();
-                MySqlConnection conectar = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin");
+                MySqlConnection conectar = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=mysql; Pwd=root");
 
                 string comando = "create database if not exists projeto_controle_de_dispositivos_moveis";
 
@@ -74,7 +74,7 @@ namespace ProJeto_Banco_de_Dados.Classes
                 Conexao con = new Conexao();
                 MySqlConnection conectar = con.ObjConexao();
 
-                string cmd_procedure = System.IO.File.ReadAllText(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\TextFile1.txt");
+                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\TextFile1.txt");
 
                 MySqlCommand comando_criarProcedure= con.comando_banco(cmd_procedure, conectar);
                 MySqlDataReader meu_reader_procedure;
@@ -89,6 +89,33 @@ namespace ProJeto_Banco_de_Dados.Classes
             }
 
         }
+
+        public static void insertDados()
+        {
+            try
+            {
+
+                Conexao con = new Conexao();
+                MySqlConnection conectar = con.ObjConexao();
+
+                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\InserirDados.txt");
+
+                MySqlCommand comando_criarProcedure = con.comando_banco(cmd_procedure, conectar);
+                MySqlDataReader meu_reader_procedure;
+                con.open(conectar);
+                meu_reader_procedure = comando_criarProcedure.ExecuteReader();
+                con.close(conectar);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+
 
         public static void CriarTabelas()
         {
