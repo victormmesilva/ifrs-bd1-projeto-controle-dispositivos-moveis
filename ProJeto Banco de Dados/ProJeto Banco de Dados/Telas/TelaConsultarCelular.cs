@@ -31,17 +31,21 @@ namespace ProJeto_Banco_de_Dados
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
             string comando = "select AP.SENHA_APARELHO,	" +
-                "AP.IMEI,AP.NUMERO_DE_SERIE,	" +
-                "AP.MAC_ADDRESS,	" +
-                "MD.NOME_MODELO,AP.FK_ID_LINHA,	" +
-                "FU.NOME_COMPLETO," +
-                " MD.FOTO_APARELHO " +
-                "from  tbt_aparelhos AP " +
-                " INNER JOIN tbt_funcionarios" +
-                " FU ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO " +
-                "INNER JOIN tbt_modelos_de_celular MD " +
-                "ON AP.FK_ID_MODELO = MD.ID_MODELO" +
-                " where ID_APARELHO = @filtro";
+                                    "AP.IMEI,AP.NUMERO_DE_SERIE,	" +
+                                    "AP.MAC_ADDRESS,	" +
+                                    "MD.NOME_MODELO," +
+                                    "LT.NUMERO_TELEFONE,	" +
+                                    "FU.NOME_COMPLETO," +
+                                    "MD.FOTO_APARELHO, " +
+                                    "AP.IndBloqueado"+
+                                    " from  tbt_aparelhos AP " +
+                                    " INNER JOIN tbt_funcionarios FU" +
+                                    " ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO " +
+                                    " INNER JOIN tbt_modelos_de_celular MD " +
+                                    " ON AP.FK_ID_MODELO = MD.ID_MODELO" +
+                                    " INNER JOIN tbt_linhas_telefonicas LT" +
+                                    " ON LT.ID_LINHA = AP.FK_ID_LINHA " +
+                                    " where AP.ID_APARELHO = @filtro";
             //con.objConexao = new MySqlConnection();
             MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
 
@@ -77,10 +81,22 @@ namespace ProJeto_Banco_de_Dados
                     string modelo = meu_reader.GetString("NOME_MODELO");
                     txtModelo.Text = modelo.ToString();
 
-                    string linha = meu_reader.GetString("FK_ID_LINHA");
+                    string linha = meu_reader.GetString("NUMERO_TELEFONE");
                     txtLinha.Text = linha.ToString();
                     string funcionario = meu_reader.GetString("NOME_COMPLETO");
                     txtFuncionario.Text = funcionario.ToString();
+                    string situacaoAparelho = meu_reader.GetString("IndBloqueado");
+
+                    if(situacaoAparelho.Equals("1"))
+                    {
+                        txtBloqueado.Text = "Bloqueado";
+                    }else
+                    {
+                        txtBloqueado.Text = "Normal";
+                    }
+
+
+                    
                     try
                     {
                         byte[] imagem = (byte[])(meu_reader["FOTO_APARELHO"]);
@@ -94,9 +110,15 @@ namespace ProJeto_Banco_de_Dados
                         MessageBox.Show("Celular sem Foto");
                     }
 
+                    txtFuncionario.Enabled = true;
+                    txtSenha.Enabled = true;
+                    txtImei.Enabled = true;
+                    txtNumeroSerie.Enabled = true;
+                    txtMacAdress.Enabled = true;
+                    txtModelo.Enabled = true;
+                    txtLinha.Enabled = true;
+                    txtBloqueado.Enabled = true;
 
-
-                    
 
                 }
 
@@ -132,6 +154,39 @@ namespace ProJeto_Banco_de_Dados
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnBloquearAparelho_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseja Realmente Bloquear o Aparelho", "Bloquear Aparelho", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+                {
+                Conexao con = new Conexao();    // criando objeto de conexao
+                MySqlConnection conectar = con.ObjConexao();
+                List<String> strList = new List<String>();
+
+                string idAparelho = txtFiltro.Text.Trim();
+                string comando = "update tbt_aparelhos set IndBloqueado = 1 where ID_APARELHO =@idAparelho ";
+
+
+                MySqlCommand comando_Bloquear = con.comando_banco(comando, conectar);
+                MySqlDataReader meu_reader;
+
+
+                con.open(conectar);
+                comando_Bloquear.Parameters.Add(new MySqlParameter("@idAparelho", idAparelho));
+
+                meu_reader = comando_Bloquear.ExecuteReader();
+                MessageBox.Show("Aparelho Bloqueado!");
+
+            }
+
+
+
+
+
 
         }
     }

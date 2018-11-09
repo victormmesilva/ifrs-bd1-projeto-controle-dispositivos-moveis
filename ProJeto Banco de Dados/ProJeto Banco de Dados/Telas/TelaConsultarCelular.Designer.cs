@@ -48,15 +48,20 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.btnBloquearAparelho = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBloqueado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFuncionario
             // 
+            this.txtFuncionario.Enabled = false;
             this.txtFuncionario.Location = new System.Drawing.Point(309, 60);
             this.txtFuncionario.Name = "txtFuncionario";
+            this.txtFuncionario.ReadOnly = true;
             this.txtFuncionario.Size = new System.Drawing.Size(383, 20);
-            this.txtFuncionario.TabIndex = 35;
+            this.txtFuncionario.TabIndex = 37;
             // 
             // label7
             // 
@@ -69,8 +74,10 @@
             // 
             // txtLinha
             // 
+            this.txtLinha.Enabled = false;
             this.txtLinha.Location = new System.Drawing.Point(543, 139);
             this.txtLinha.Name = "txtLinha";
+            this.txtLinha.ReadOnly = true;
             this.txtLinha.Size = new System.Drawing.Size(149, 20);
             this.txtLinha.TabIndex = 33;
             // 
@@ -85,8 +92,10 @@
             // 
             // txtModelo
             // 
+            this.txtModelo.Enabled = false;
             this.txtModelo.Location = new System.Drawing.Point(464, 178);
             this.txtModelo.Name = "txtModelo";
+            this.txtModelo.ReadOnly = true;
             this.txtModelo.Size = new System.Drawing.Size(228, 20);
             this.txtModelo.TabIndex = 31;
             // 
@@ -101,8 +110,10 @@
             // 
             // txtMacAdress
             // 
+            this.txtMacAdress.Enabled = false;
             this.txtMacAdress.Location = new System.Drawing.Point(309, 178);
             this.txtMacAdress.Name = "txtMacAdress";
+            this.txtMacAdress.ReadOnly = true;
             this.txtMacAdress.Size = new System.Drawing.Size(149, 20);
             this.txtMacAdress.TabIndex = 29;
             // 
@@ -117,8 +128,10 @@
             // 
             // txtNumeroSerie
             // 
+            this.txtNumeroSerie.Enabled = false;
             this.txtNumeroSerie.Location = new System.Drawing.Point(423, 100);
             this.txtNumeroSerie.Name = "txtNumeroSerie";
+            this.txtNumeroSerie.ReadOnly = true;
             this.txtNumeroSerie.Size = new System.Drawing.Size(269, 20);
             this.txtNumeroSerie.TabIndex = 27;
             // 
@@ -133,8 +146,10 @@
             // 
             // txtImei
             // 
+            this.txtImei.Enabled = false;
             this.txtImei.Location = new System.Drawing.Point(309, 139);
             this.txtImei.Name = "txtImei";
+            this.txtImei.ReadOnly = true;
             this.txtImei.Size = new System.Drawing.Size(228, 20);
             this.txtImei.TabIndex = 25;
             // 
@@ -158,8 +173,10 @@
             // 
             // txtSenha
             // 
+            this.txtSenha.Enabled = false;
             this.txtSenha.Location = new System.Drawing.Point(309, 100);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.ReadOnly = true;
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 22;
             // 
@@ -177,7 +194,7 @@
             this.txtFiltro.Location = new System.Drawing.Point(309, 25);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(116, 20);
-            this.txtFiltro.TabIndex = 37;
+            this.txtFiltro.TabIndex = 35;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnConsultar
@@ -210,12 +227,43 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // btnBloquearAparelho
+            // 
+            this.btnBloquearAparelho.Location = new System.Drawing.Point(466, 312);
+            this.btnBloquearAparelho.Name = "btnBloquearAparelho";
+            this.btnBloquearAparelho.Size = new System.Drawing.Size(109, 30);
+            this.btnBloquearAparelho.TabIndex = 40;
+            this.btnBloquearAparelho.Text = "Bloquear";
+            this.btnBloquearAparelho.UseVisualStyleBackColor = true;
+            this.btnBloquearAparelho.Click += new System.EventHandler(this.btnBloquearAparelho_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(309, 213);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "Situação";
+            // 
+            // txtBloqueado
+            // 
+            this.txtBloqueado.Enabled = false;
+            this.txtBloqueado.Location = new System.Drawing.Point(312, 230);
+            this.txtBloqueado.Name = "txtBloqueado";
+            this.txtBloqueado.ReadOnly = true;
+            this.txtBloqueado.Size = new System.Drawing.Size(100, 20);
+            this.txtBloqueado.TabIndex = 42;
+            // 
             // TelaConsultarCelular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(698, 358);
+            this.Controls.Add(this.txtBloqueado);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnBloquearAparelho);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.txtFiltro);
@@ -268,5 +316,8 @@
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Button btnBloquearAparelho;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBloqueado;
     }
 }
