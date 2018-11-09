@@ -423,7 +423,7 @@ namespace ProJeto_Banco_de_Dados
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            String cpf = mTxtCPF.Text.Trim().Replace(".","").Replace("-","");
+            String cpf = mTxtCPF.Text.Trim().Replace(".","").Replace("-","").Replace(",", "");
 
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
