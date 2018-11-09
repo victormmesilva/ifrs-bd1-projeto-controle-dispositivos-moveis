@@ -21,14 +21,8 @@ namespace ProJeto_Banco_de_Dados
 
         public TelaCadastrarAparelho()
         {
-            InitializeComponent();
-            carregaComboLinha();
-            carregaComboFuncionario();
-            
-            carregaComboDDD();
-            carregaComboDDI();
-            carregaComboOperadora();
-            carregaComboMarca();
+            InitializeComponent();            
+            carregaComboFuncionario();            
         }
 
         private void carregaComboMarca()
@@ -57,6 +51,7 @@ namespace ProJeto_Banco_de_Dados
                 }
             }
             con.close(conectar);
+            cbxMarca.Enabled = true;
         }
 
         private void carregaComboOperadora()
@@ -199,13 +194,13 @@ namespace ProJeto_Banco_de_Dados
                
 
 
-                comando_insert.Parameters.Add(new MySqlParameter("@SENHA_APARELHO", txtSenha.Text));
-                comando_insert.Parameters.Add(new MySqlParameter("@IMEI", txtImei.Text));
-                comando_insert.Parameters.Add(new MySqlParameter("@NUMERO_DE_SERIE", txtNumeroSerie.Text));
-                comando_insert.Parameters.Add(new MySqlParameter("@MAC_ADDRESS", txtMacAdress.Text));
+                //comando_insert.Parameters.Add(new MySqlParameter("@SENHA_APARELHO", txtSenha.Text));
+                //comando_insert.Parameters.Add(new MySqlParameter("@IMEI", txtImei.Text));
+                //comando_insert.Parameters.Add(new MySqlParameter("@NUMERO_DE_SERIE", txtNumeroSerie.Text));
+                //comando_insert.Parameters.Add(new MySqlParameter("@MAC_ADDRESS", txtMacAdress.Text));
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_MODELO", cbxModelo.SelectedIndex));
                 comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_LINHA", cbxLinha.SelectedIndex));
-                comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_FUNCIONARIO", cbxFuncionario.SelectedIndex));
+                //comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_FUNCIONARIO", cbxFuncionario.SelectedIndex));
                 
                 //comando_insert.Parameters.Add(new MySqlParameter("@FOTO", imagem_byti));
 
@@ -289,7 +284,6 @@ namespace ProJeto_Banco_de_Dados
             con.close(conectar);
         }
 
-
         private void carregaComboFuncionario()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
@@ -312,7 +306,7 @@ namespace ProJeto_Banco_de_Dados
                 while (meu_reader.Read())
                 {
                     strList.Add(meu_reader.GetString("NOME_COMPLETO"));
-                    cbxFuncionario.Items.Add(strList[i++]);
+                    //cbxFuncionario.Items.Add(strList[i++]);
                 }
             }
             con.close(conectar);
@@ -385,10 +379,6 @@ namespace ProJeto_Banco_de_Dados
             
         }
         
-           
-
-
-
         private void TelaCadastrarAparelho_Load(object sender, EventArgs e)
         {
 
@@ -397,13 +387,73 @@ namespace ProJeto_Banco_de_Dados
         private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
         {            
             carregaFoto(cbxModelo.Text.Trim());
+            carregaComboDDI();
+            cbxDDI.Enabled = true;
         }
 
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             carregaComboModelo(cbxMarca.Text.Trim());
-            cbxModelo.Enabled = true;
-           
+            cbxModelo.Enabled = true;           
+        }
+
+        private void cbxFuncionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaComboMarca();
+            cbxMarca.Enabled = true;            
+        }
+
+        private void cbxDDI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaComboDDD();
+            cbxDDD.Enabled = true;
+        }
+
+        private void cbxDDD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaComboOperadora();
+            cbxOperadora.Enabled = true;
+        }
+
+        private void cbxOperadora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaComboLinha();
+            cbxLinha.Enabled = true;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            String cpf = mTxtCPF.Text.Trim().Replace(".","").Replace("-","");
+
+            Conexao con = new Conexao();    // criando objeto de conexao
+            MySqlConnection conectar = con.ObjConexao();
+            List<String> strList = new List<String>();
+
+
+            string comando = "SELECT NOME_COMPLETO " +
+                "FROM TBT_FUNCIONARIOS " +
+                "WHERE CPF = @cpf";
+
+            MySqlCommand comando_modelo = con.comando_banco(comando, conectar);
+
+            MySqlDataReader meu_reader;
+            con.open(conectar);
+            comando_modelo.Parameters.Add(new MySqlParameter("@cpf", cpf));
+
+
+            meu_reader = comando_modelo.ExecuteReader();
+            if (meu_reader.HasRows && meu_reader.Read())
+            {
+                lblNome.Text = meu_reader.GetString("NOME_COMPLETO");
+                lblNome.ForeColor = System.Drawing.Color.Black;
+                carregaComboMarca();                
+            }
+            else {
+                lblNome.Text = "CPF INVÁLIDO";
+                lblNome.ForeColor = System.Drawing.Color.Red;
+                cbxMarca.Enabled = false;
+            }
+            con.close(conectar);
         }
     }
 }

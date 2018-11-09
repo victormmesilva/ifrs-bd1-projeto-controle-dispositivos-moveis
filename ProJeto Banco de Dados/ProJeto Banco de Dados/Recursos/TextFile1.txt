@@ -101,8 +101,8 @@ BEGIN
 #TBT_FUNCIONARIOS
 	CREATE TABLE IF NOT EXISTS TBT_FUNCIONARIOS(
 		ID_FUNCIONARIO int auto_increment not null,
-		CPF int(11) unique not null,
-		RG int(10) unique not null,
+		CPF varchar(11) unique not null,
+		RG varchar(10) unique not null,
 		NOME_COMPLETO varchar(150) not null,
 		DATA_NASCIMENTO date not null,
 		TELEFONE int not null,

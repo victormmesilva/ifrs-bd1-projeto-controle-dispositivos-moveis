@@ -30,27 +30,21 @@ namespace ProJeto_Banco_de_Dados
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label10;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastrarAparelho));
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtImei = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNumeroSerie = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMacAdress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.cbxLinha = new System.Windows.Forms.ComboBox();
-            this.cbxFuncionario = new System.Windows.Forms.ComboBox();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mTxtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.lblCPF = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbxDDD = new System.Windows.Forms.ComboBox();
@@ -59,88 +53,45 @@ namespace ProJeto_Banco_de_Dados
             this.lblDDI = new System.Windows.Forms.Label();
             this.cbxOperadora = new System.Windows.Forms.ComboBox();
             this.lblOperadora = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblArmazenamento = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblRam = new System.Windows.Forms.Label();
+            this.lblSO = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblChipset = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblNumChips = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.btnOK = new System.Windows.Forms.Button();
+            label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.Location = new System.Drawing.Point(6, 106);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(100, 13);
+            label10.TabIndex = 6;
+            label10.Text = "Armazenamento:";
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(459, 405);
+            this.btnSalvar.Location = new System.Drawing.Point(522, 413);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Location = new System.Drawing.Point(167, 162);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(94, 20);
-            this.txtSenha.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Senha";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "IMEI";
-            // 
-            // txtImei
-            // 
-            this.txtImei.Enabled = false;
-            this.txtImei.Location = new System.Drawing.Point(9, 121);
-            this.txtImei.Name = "txtImei";
-            this.txtImei.Size = new System.Drawing.Size(143, 20);
-            this.txtImei.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Número de Série";
-            // 
-            // txtNumeroSerie
-            // 
-            this.txtNumeroSerie.Enabled = false;
-            this.txtNumeroSerie.Location = new System.Drawing.Point(167, 121);
-            this.txtNumeroSerie.Name = "txtNumeroSerie";
-            this.txtNumeroSerie.Size = new System.Drawing.Size(180, 20);
-            this.txtNumeroSerie.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "MAC Address";
-            // 
-            // txtMacAdress
-            // 
-            this.txtMacAdress.Enabled = false;
-            this.txtMacAdress.Location = new System.Drawing.Point(9, 162);
-            this.txtMacAdress.Name = "txtMacAdress";
-            this.txtMacAdress.Size = new System.Drawing.Size(143, 20);
-            this.txtMacAdress.TabIndex = 13;
             // 
             // label5
             // 
@@ -164,15 +115,16 @@ namespace ProJeto_Banco_de_Dados
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 18;
-            this.label7.Text = "Nome";
+            this.label7.Text = "Nome:";
             // 
             // btnFechar
             // 
-            this.btnFechar.Location = new System.Drawing.Point(541, 405);
+            this.btnFechar.Location = new System.Drawing.Point(604, 413);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 20;
@@ -182,6 +134,7 @@ namespace ProJeto_Banco_de_Dados
             // 
             // cbxLinha
             // 
+            this.cbxLinha.Enabled = false;
             this.cbxLinha.FormattingEnabled = true;
             this.cbxLinha.Location = new System.Drawing.Point(149, 71);
             this.cbxLinha.Name = "cbxLinha";
@@ -190,22 +143,13 @@ namespace ProJeto_Banco_de_Dados
             this.cbxLinha.Text = "SELECIONE";
             this.cbxLinha.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // cbxFuncionario
-            // 
-            this.cbxFuncionario.FormattingEnabled = true;
-            this.cbxFuncionario.Location = new System.Drawing.Point(9, 33);
-            this.cbxFuncionario.Name = "cbxFuncionario";
-            this.cbxFuncionario.Size = new System.Drawing.Size(338, 21);
-            this.cbxFuncionario.TabIndex = 22;
-            this.cbxFuncionario.Text = "SELECIONE";
-            // 
             // cbxModelo
             // 
             this.cbxModelo.Enabled = false;
             this.cbxModelo.FormattingEnabled = true;
             this.cbxModelo.Location = new System.Drawing.Point(9, 80);
             this.cbxModelo.Name = "cbxModelo";
-            this.cbxModelo.Size = new System.Drawing.Size(338, 21);
+            this.cbxModelo.Size = new System.Drawing.Size(321, 21);
             this.cbxModelo.TabIndex = 23;
             this.cbxModelo.Text = "SELECIONE";
             this.cbxModelo.SelectedIndexChanged += new System.EventHandler(this.cbxModelo_SelectedIndexChanged);
@@ -213,7 +157,7 @@ namespace ProJeto_Banco_de_Dados
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProJeto_Banco_de_Dados.Properties.Resources.logo_fotografia_1;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 234);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -232,6 +176,7 @@ namespace ProJeto_Banco_de_Dados
             // 
             // cbxMarca
             // 
+            this.cbxMarca.Enabled = false;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(9, 33);
             this.cbxMarca.Name = "cbxMarca";
@@ -242,32 +187,45 @@ namespace ProJeto_Banco_de_Dados
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblNome);
+            this.groupBox1.Controls.Add(this.btnOK);
+            this.groupBox1.Controls.Add(this.mTxtCPF);
+            this.groupBox1.Controls.Add(this.lblCPF);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cbxFuncionario);
-            this.groupBox1.Location = new System.Drawing.Point(264, 12);
+            this.groupBox1.Location = new System.Drawing.Point(335, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 69);
+            this.groupBox1.Size = new System.Drawing.Size(344, 89);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Funcionário";
             // 
+            // mTxtCPF
+            // 
+            this.mTxtCPF.Location = new System.Drawing.Point(60, 17);
+            this.mTxtCPF.Mask = "000.000.000-00";
+            this.mTxtCPF.Name = "mTxtCPF";
+            this.mTxtCPF.Size = new System.Drawing.Size(88, 20);
+            this.mTxtCPF.TabIndex = 24;
+            // 
+            // lblCPF
+            // 
+            this.lblCPF.AutoSize = true;
+            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.Location = new System.Drawing.Point(9, 20);
+            this.lblCPF.Name = "lblCPF";
+            this.lblCPF.Size = new System.Drawing.Size(34, 13);
+            this.lblCPF.TabIndex = 23;
+            this.lblCPF.Text = "CPF:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbxMarca);
-            this.groupBox2.Controls.Add(this.txtSenha);
-            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lblMarca);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cbxModelo);
-            this.groupBox2.Controls.Add(this.txtImei);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtNumeroSerie);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtMacAdress);
-            this.groupBox2.Location = new System.Drawing.Point(264, 87);
+            this.groupBox2.Location = new System.Drawing.Point(335, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 199);
+            this.groupBox2.Size = new System.Drawing.Size(344, 152);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados do Aparelho";
@@ -282,21 +240,23 @@ namespace ProJeto_Banco_de_Dados
             this.groupBox3.Controls.Add(this.lblOperadora);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.cbxLinha);
-            this.groupBox3.Location = new System.Drawing.Point(264, 292);
+            this.groupBox3.Location = new System.Drawing.Point(335, 301);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(353, 107);
+            this.groupBox3.Size = new System.Drawing.Size(344, 107);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados da Linha";
             // 
             // cbxDDD
             // 
+            this.cbxDDD.Enabled = false;
             this.cbxDDD.FormattingEnabled = true;
             this.cbxDDD.Location = new System.Drawing.Point(9, 71);
             this.cbxDDD.Name = "cbxDDD";
             this.cbxDDD.Size = new System.Drawing.Size(121, 21);
             this.cbxDDD.TabIndex = 27;
             this.cbxDDD.Text = "SELECIONE";
+            this.cbxDDD.SelectedIndexChanged += new System.EventHandler(this.cbxDDD_SelectedIndexChanged);
             // 
             // lblDDD
             // 
@@ -309,12 +269,14 @@ namespace ProJeto_Banco_de_Dados
             // 
             // cbxDDI
             // 
+            this.cbxDDI.Enabled = false;
             this.cbxDDI.FormattingEnabled = true;
             this.cbxDDI.Location = new System.Drawing.Point(9, 32);
             this.cbxDDI.Name = "cbxDDI";
             this.cbxDDI.Size = new System.Drawing.Size(121, 21);
             this.cbxDDI.TabIndex = 25;
             this.cbxDDI.Text = "SELECIONE";
+            this.cbxDDI.SelectedIndexChanged += new System.EventHandler(this.cbxDDI_SelectedIndexChanged);
             // 
             // lblDDI
             // 
@@ -327,12 +289,14 @@ namespace ProJeto_Banco_de_Dados
             // 
             // cbxOperadora
             // 
+            this.cbxOperadora.Enabled = false;
             this.cbxOperadora.FormattingEnabled = true;
             this.cbxOperadora.Location = new System.Drawing.Point(149, 31);
             this.cbxOperadora.Name = "cbxOperadora";
             this.cbxOperadora.Size = new System.Drawing.Size(121, 21);
             this.cbxOperadora.TabIndex = 23;
             this.cbxOperadora.Text = "SELECIONE";
+            this.cbxOperadora.SelectedIndexChanged += new System.EventHandler(this.cbxOperadora_SelectedIndexChanged);
             // 
             // lblOperadora
             // 
@@ -343,12 +307,135 @@ namespace ProJeto_Banco_de_Dados
             this.lblOperadora.TabIndex = 22;
             this.lblOperadora.Text = "Operadora";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblArmazenamento);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.lblRam);
+            this.groupBox4.Controls.Add(label10);
+            this.groupBox4.Controls.Add(this.lblSO);
+            this.groupBox4.Controls.Add(this.lbl);
+            this.groupBox4.Controls.Add(this.lblChipset);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.lblNumChips);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Location = new System.Drawing.Point(23, 289);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(272, 147);
+            this.groupBox4.TabIndex = 29;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ficha técnica";
+            // 
+            // lblArmazenamento
+            // 
+            this.lblArmazenamento.AutoSize = true;
+            this.lblArmazenamento.Location = new System.Drawing.Point(112, 106);
+            this.lblArmazenamento.Name = "lblArmazenamento";
+            this.lblArmazenamento.Size = new System.Drawing.Size(37, 13);
+            this.lblArmazenamento.TabIndex = 9;
+            this.lblArmazenamento.Text = "32 GB";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(83, 87);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Android";
+            // 
+            // lblRam
+            // 
+            this.lblRam.AutoSize = true;
+            this.lblRam.Location = new System.Drawing.Point(83, 68);
+            this.lblRam.Name = "lblRam";
+            this.lblRam.Size = new System.Drawing.Size(31, 13);
+            this.lblRam.TabIndex = 7;
+            this.lblRam.Text = "2 GB";
+            // 
+            // lblSO
+            // 
+            this.lblSO.AutoSize = true;
+            this.lblSO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSO.Location = new System.Drawing.Point(6, 87);
+            this.lblSO.Name = "lblSO";
+            this.lblSO.Size = new System.Drawing.Size(28, 13);
+            this.lblSO.TabIndex = 5;
+            this.lblSO.Text = "SO:";
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(6, 68);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(38, 13);
+            this.lbl.TabIndex = 4;
+            this.lbl.Text = "RAM:";
+            // 
+            // lblChipset
+            // 
+            this.lblChipset.AutoSize = true;
+            this.lblChipset.Location = new System.Drawing.Point(84, 49);
+            this.lblChipset.Name = "lblChipset";
+            this.lblChipset.Size = new System.Drawing.Size(142, 13);
+            this.lblChipset.TabIndex = 3;
+            this.lblChipset.Text = "Snapdragon 660 Qualcomm ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 49);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Chipset:";
+            // 
+            // lblNumChips
+            // 
+            this.lblNumChips.AutoSize = true;
+            this.lblNumChips.Location = new System.Drawing.Point(96, 31);
+            this.lblNumChips.Name = "lblNumChips";
+            this.lblNumChips.Size = new System.Drawing.Size(13, 13);
+            this.lblNumChips.TabIndex = 1;
+            this.lblNumChips.Text = "2";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nº de CHIPS:";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(57, 49);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(0, 13);
+            this.lblNome.TabIndex = 25;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(159, 17);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(60, 20);
+            this.btnOK.TabIndex = 26;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // TelaCadastrarAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(646, 442);
+            this.ClientSize = new System.Drawing.Size(704, 485);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -367,6 +454,8 @@ namespace ProJeto_Banco_de_Dados
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,20 +466,11 @@ namespace ProJeto_Banco_de_Dados
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtImei;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNumeroSerie;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtMacAdress;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.ComboBox cbxLinha;
-        private System.Windows.Forms.ComboBox cbxFuncionario;
         private System.Windows.Forms.ComboBox cbxModelo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.ComboBox cbxMarca;
@@ -403,5 +483,19 @@ namespace ProJeto_Banco_de_Dados
         private System.Windows.Forms.Label lblDDD;
         private System.Windows.Forms.ComboBox cbxDDI;
         private System.Windows.Forms.Label lblDDI;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblChipset;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNumChips;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblRam;
+        private System.Windows.Forms.Label lblSO;
+        private System.Windows.Forms.Label lblArmazenamento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox mTxtCPF;
+        private System.Windows.Forms.Label lblCPF;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Label lblNome;
     }
 }
