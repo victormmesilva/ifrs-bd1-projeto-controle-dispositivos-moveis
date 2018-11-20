@@ -268,7 +268,7 @@ BEGIN
 		FK_ID_CARGO int not null,
 		FK_ID_GENERO int not null,
 		FK_ID_RUA int not null,
-		NUMERO int not null,
+		NUMERO int not null default 0,
 		primary key(ID_FUNCIONARIO),
 		foreign key(FK_ID_CARGO) references TBT_CARGOS(ID_CARGO),
 		foreign key(FK_ID_GENERO) references TBT_GENEROS(ID_GENERO),

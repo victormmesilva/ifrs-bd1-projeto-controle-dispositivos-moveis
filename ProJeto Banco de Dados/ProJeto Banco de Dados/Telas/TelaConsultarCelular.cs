@@ -30,22 +30,22 @@ namespace ProJeto_Banco_de_Dados
         {
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
-            string comando = "select AP.SENHA_APARELHO,	" +
-                                    "AP.IMEI,AP.NUMERO_DE_SERIE,	" +
-                                    "AP.MAC_ADDRESS,	" +
-                                    "MD.NOME_MODELO," +
-                                    "LT.NUMERO_TELEFONE,	" +
-                                    "FU.NOME_COMPLETO," +
-                                    "MD.FOTO_APARELHO, " +
-                                    "AP.IndBloqueado"+
-                                    " from  tbt_aparelhos AP " +
-                                    " INNER JOIN tbt_funcionarios FU" +
-                                    " ON FU.ID_FUNCIONARIO = AP.FK_ID_FUNCIONARIO " +
-                                    " INNER JOIN tbt_modelos_de_celular MD " +
-                                    " ON AP.FK_ID_MODELO = MD.ID_MODELO" +
-                                    " INNER JOIN tbt_linhas_telefonicas LT" +
-                                    " ON LT.ID_LINHA = AP.FK_ID_LINHA " +
-                                    " where AP.ID_APARELHO = @filtro";
+            string comando = " SELECT AP.SENHA_APARELHO, " +
+                                " AP.IMEI," +
+                                " AP.NUMERO_DE_SERIE, " +
+                                " AP.MAC_ADDRESS, " +
+                                " MD.NOME_MODELO, " +
+                                " FU.NOME_COMPLETO, " +
+                                " MD.FOTO_APARELHO, " +
+                                " AP.BLOQUEADO " +
+                                " FROM  tbt_aparelhos AP " +
+                                " INNER JOIN TBT_FUNCIONARIOS_APARELHOS FUN_AP " +
+                                " ON FUN_AP.FK_ID_APARELHO = AP.ID_APARELHO " +
+                                " INNER JOIN tbt_funcionarios FU " +
+                                " ON FU.ID_FUNCIONARIO = FUN_AP.FK_ID_FUNCIONARIO " +
+                                " INNER JOIN tbt_modelos_de_celular MD " +
+                                " ON AP.FK_ID_MODELO = MD.ID_MODELO " +
+                                " WHERE AP.ID_APARELHO = @filtro";
             //con.objConexao = new MySqlConnection();
             MySqlCommand comando_consultar = con.comando_banco(comando, conectar);
 
@@ -81,11 +81,11 @@ namespace ProJeto_Banco_de_Dados
                     string modelo = meu_reader.GetString("NOME_MODELO");
                     txtModelo.Text = modelo.ToString();
 
-                    string linha = meu_reader.GetString("NUMERO_TELEFONE");
-                    txtLinha.Text = linha.ToString();
+                    //string linha = meu_reader.GetString("NUMERO_TELEFONE");
+                    txtLinha.Text = "Em manutenção";//linha.ToString();
                     string funcionario = meu_reader.GetString("NOME_COMPLETO");
                     txtFuncionario.Text = funcionario.ToString();
-                    string situacaoAparelho = meu_reader.GetString("IndBloqueado");
+                    string situacaoAparelho = meu_reader.GetString("BLOQUEADO");
 
                     if(situacaoAparelho.Equals("1"))
                     {
@@ -168,7 +168,7 @@ namespace ProJeto_Banco_de_Dados
                 List<String> strList = new List<String>();
 
                 string idAparelho = txtFiltro.Text.Trim();
-                string comando = "update tbt_aparelhos set IndBloqueado = 1 where ID_APARELHO =@idAparelho ";
+                string comando = "update tbt_aparelhos set BLOQUEADO = 1 where ID_APARELHO =@idAparelho ";
 
 
                 MySqlCommand comando_Bloquear = con.comando_banco(comando, conectar);
