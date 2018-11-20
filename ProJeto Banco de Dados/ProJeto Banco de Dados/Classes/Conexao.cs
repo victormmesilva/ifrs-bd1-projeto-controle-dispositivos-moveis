@@ -74,7 +74,7 @@ namespace ProJeto_Banco_de_Dados.Classes
                 Conexao con = new Conexao();
                 MySqlConnection conectar = con.ObjConexao();
 
-                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\TextFile1.txt");
+                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\CriarBanco.txt");
 
                 MySqlCommand comando_criarProcedure= con.comando_banco(cmd_procedure, conectar);
                 MySqlDataReader meu_reader_procedure;
