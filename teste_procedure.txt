@@ -1,0 +1,14 @@
+	TESTE 
+1. Insere um funcionario na fila de espera. 
+2. Insere um aparelho(trigger roda a PRO_VERIFICA_LISTA_ESPERA).
+3. PRO_VERIFICA_LISTA_ESPERA:
+	3.1. Pega o modelo e o id do aparelho que foi inserido.
+	3.2. Procura o modelo na fila de espera, se encontrar, pega o id do funcionario.
+	3.3. Procura na lista de aparelhos o aparelho e dá um update com o id do funcionario.
+
+
+O id 4(JULIO VIEGAS) deve ser 
+
+POP 3 - MODEL 4
+
+FUNC 4 NA POS 2 AGUARDA O MODELO 4
