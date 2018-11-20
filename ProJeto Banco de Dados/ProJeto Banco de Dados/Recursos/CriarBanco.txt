@@ -339,6 +339,17 @@ BEGIN
 	);
 
 
+insert into TBT_TELEFONES_FUNCIONARIOS (ID, FK_ID_FUNCIONARIO, TELEFONE)
+    values (null, 1, '+5551985679234'),
+    (null, 1, '+5553986754692'),
+    (null, 2, '+5542997581234'),
+    (null, 1, '+5551985679234'),
+    (null, 3, '+5511987561234'),
+    (null, 4, '+5541988979434'),
+    (null, 5, '+5551995677224'),
+    (null, 5, '+5551986778138'),
+    (null, 6, '+5532994468156');
+
 
 #TBT_LINHAS_TELEFONICAS
 	CREATE TABLE IF NOT EXISTS TBT_LINHAS_TELEFONICAS(
