@@ -119,11 +119,8 @@ namespace ProJeto_Banco_de_Dados
                     txtLinha.Enabled = true;
                     txtBloqueado.Enabled = true;
 
-
+                    
                 }
-
-
-
 
 
             }
@@ -133,6 +130,7 @@ namespace ProJeto_Banco_de_Dados
             }
             finally
             {
+                
                 con.close(conectar);
 
             }
@@ -188,6 +186,11 @@ namespace ProJeto_Banco_de_Dados
 
 
 
+        }
+
+        internal void carregaComboMarca()
+        {
+            throw new NotImplementedException();
         }
     }
 }
