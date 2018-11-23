@@ -33,7 +33,7 @@ namespace ProJeto_Banco_de_Dados
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
 
-            string select = "select * from view_funcionarios";
+            string select = "select * from tbt_funcionarios";
 
             MySqlCommand comando_consultar = con.comando_banco(select, conectar);
             //objConexao = new MySqlConnection(_conection);

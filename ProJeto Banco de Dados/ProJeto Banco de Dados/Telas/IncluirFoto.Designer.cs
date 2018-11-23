@@ -31,7 +31,6 @@
             this.btnInserirImagem = new System.Windows.Forms.Button();
             this.txtImagem = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.cbxAparelhosemfoto = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,14 +63,6 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // cbxAparelhosemfoto
-            // 
-            this.cbxAparelhosemfoto.FormattingEnabled = true;
-            this.cbxAparelhosemfoto.Location = new System.Drawing.Point(286, 127);
-            this.cbxAparelhosemfoto.Name = "cbxAparelhosemfoto";
-            this.cbxAparelhosemfoto.Size = new System.Drawing.Size(121, 21);
-            this.cbxAparelhosemfoto.TabIndex = 7;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProJeto_Banco_de_Dados.Properties.Resources.logo_fotografia_1;
@@ -89,18 +80,17 @@
             this.txtFiltro.Size = new System.Drawing.Size(56, 20);
             this.txtFiltro.TabIndex = 38;
             // 
-            // Form1
+            // IncluirFoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 387);
             this.Controls.Add(this.txtFiltro);
-            this.Controls.Add(this.cbxAparelhosemfoto);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnInserirImagem);
             this.Controls.Add(this.txtImagem);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "IncluirFoto";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -114,7 +104,6 @@
         private System.Windows.Forms.TextBox txtImagem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.ComboBox cbxAparelhosemfoto;
         private System.Windows.Forms.TextBox txtFiltro;
     }
 }

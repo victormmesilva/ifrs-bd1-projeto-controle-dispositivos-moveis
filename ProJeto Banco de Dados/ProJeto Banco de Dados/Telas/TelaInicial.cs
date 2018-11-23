@@ -61,7 +61,7 @@ namespace ProJeto_Banco_de_Dados
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaConsultarCelular consultar_celular = new TelaConsultarCelular();
-            consultar_celular.Show();
+            consultar_celular.ShowDialog();
         }
 
         private void dgView_CellContentClick(object sender, DataGridViewCellEventArgs e)

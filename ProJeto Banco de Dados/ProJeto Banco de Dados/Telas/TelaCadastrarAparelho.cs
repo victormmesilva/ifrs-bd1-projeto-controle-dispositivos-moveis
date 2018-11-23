@@ -159,26 +159,13 @@ namespace ProJeto_Banco_de_Dados
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            byte[] imagem_byti = null;
-
-
-            //if (!this.txtImagem.Text.Equals(""))
-            //{
-
-            //    FileStream fstream = new FileStream(this.txtImagem.Text, FileMode.Open, FileAccess.Read);
-            //    BinaryReader br = new BinaryReader(fstream);
-            //    imagem_byti = br.ReadBytes((int)fstream.Length);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Campo Foto Não pode ser vasio");
-
-            //}
+            //byte[] imagem_byti = null;
 
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao(); // chamando o metodo de conexao e atribuindo no conectar o retorno do metodo
 
-            string insert = "INSERT INTO tbt_aparelhos (SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO) VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO,@FK_ID_LINHA,@FK_ID_FUNCIONARIO)";
+            string insert = " INSERT INTO tbt_aparelhos(SENHA_APARELHO,IMEI,NUMERO_DE_SERIE,MAC_ADDRESS,FK_ID_MODELO,FK_ID_LINHA,FK_ID_FUNCIONARIO) " +
+                            " VALUES (@SENHA_APARELHO,@IMEI,@NUMERO_DE_SERIE,@MAC_ADDRESS,@FK_ID_MODELO); ";
 
             MySqlCommand comando_insert = con.comando_banco(insert, conectar); //chamando metodo comando_consultar do mysql e mandando o camando e a nonexao
 
@@ -191,29 +178,14 @@ namespace ProJeto_Banco_de_Dados
                 con.open(conectar);// abrindo conexao
 
                 Aparelho aparelho = new Aparelho();
-               
-
-
                 //comando_insert.Parameters.Add(new MySqlParameter("@SENHA_APARELHO", txtSenha.Text));
                 //comando_insert.Parameters.Add(new MySqlParameter("@IMEI", txtImei.Text));
                 //comando_insert.Parameters.Add(new MySqlParameter("@NUMERO_DE_SERIE", txtNumeroSerie.Text));
                 //comando_insert.Parameters.Add(new MySqlParameter("@MAC_ADDRESS", txtMacAdress.Text));
-                comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_MODELO", cbxModelo.SelectedIndex));
-                comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_LINHA", cbxLinha.SelectedIndex));
-                //comando_insert.Parameters.Add(new MySqlParameter("@FK_ID_FUNCIONARIO", cbxFuncionario.SelectedIndex));
-                
-                //comando_insert.Parameters.Add(new MySqlParameter("@FOTO", imagem_byti));
-
-                // comando_insert.Parameters.Add(new MySqlParameter("@nome_Aparelho", txtNome.Text));
-                // var rowsAffecteds = comando_insert.ExecuteNonQuery();
 
                 meu_reader = comando_insert.ExecuteReader();
 
-
                 MessageBox.Show("Cadastro Salvo");
-                // TelaCadastrarAparelho.ActiveForm.Close();
-
-
             }
             catch (Exception ex)
             {
@@ -222,7 +194,6 @@ namespace ProJeto_Banco_de_Dados
             finally
             {
                 con.close(conectar);
-
             }
 
 
@@ -251,20 +222,19 @@ namespace ProJeto_Banco_de_Dados
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
             List<String> strList = new List<String>();
-
-
-            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
-                string comando = "select l.ID_LINHA, " +
-                                 "CONCAT('(',p.DDI,') ',c.DDD, ' ',l.NUMERO_TELEFONE) AS TELEFONE" +
-                                 " from tbt_linhas_telefonicas l " +
-                                 " LEFT JOIN tbt_aparelhos a " +
-                                 " ON l.ID_LINHA = a.FK_ID_LINHA " +
-                                 " INNER JOIN tbt_paises p " +
-                                 " ON p.ID_PAIS = l.FK_ID_PAIS " +
-                                 " INNER JOIN tbt_cidades c " +
-                                 " ON c.ID_CIDADE = l.FK_ID_CIDADE " +
-                                 " where a.FK_ID_LINHA IS NULL " +
-                                 " ORDER BY TELEFONE; ";
+           
+            string comando =    " SELECT     " +
+                                " l.ID_LINHA, " +
+                                " CONCAT('(', p.DDI, ') ', c.DDD, ' ', l.NUMERO_TELEFONE) AS TELEFONE " +
+                                " from tbt_linhas_telefonicas l " +
+                                " INNER JOIN tbt_cidades c " +
+                                " ON c.ID_CIDADE = l.FK_ID_CIDADE " +
+                                " INNER JOIN tbt_estados e " +
+                                " ON e.ID_ESTADO = c.FK_ID_ESTADO " +
+                                " INNER JOIN tbt_paises p " +
+                                " ON p.ID_PAIS = e.FK_ID_PAIS " +
+                                " where l.FK_ID_APARELHO IS NULL " +
+                                " ORDER BY TELEFONE; "; 
 
             MySqlCommand comando_LInha = con.comando_banco(comando, conectar);
 
@@ -281,6 +251,8 @@ namespace ProJeto_Banco_de_Dados
                     cbxLinha.Items.Add(strList[i++]);
                 }
             }
+            else
+                MessageBox.Show("Nenhuma linha disponível!", "Linha Indisponível", MessageBoxButtons.OK);
             con.close(conectar);
         }
 
