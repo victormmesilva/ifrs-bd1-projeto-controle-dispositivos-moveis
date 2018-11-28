@@ -54,14 +54,14 @@ namespace ProJeto_Banco_de_Dados
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TelaCadastrarAparelho cadastro_celular = new TelaCadastrarAparelho();
+            TelaDistribuirAparelho cadastro_celular = new TelaDistribuirAparelho();
             cadastro_celular.Show();
             
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TelaConsultarCelular consultar_celular = new TelaConsultarCelular();
+            TelaConsultarAparelho consultar_celular = new TelaConsultarAparelho();
             consultar_celular.ShowDialog();
         }
 
@@ -80,7 +80,7 @@ namespace ProJeto_Banco_de_Dados
 
         private void inserirFotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IncluirFoto consultar_celular = new IncluirFoto();
+            TelaCadastrarAparelho consultar_celular = new TelaCadastrarAparelho();
             consultar_celular.Show();
         }
     }

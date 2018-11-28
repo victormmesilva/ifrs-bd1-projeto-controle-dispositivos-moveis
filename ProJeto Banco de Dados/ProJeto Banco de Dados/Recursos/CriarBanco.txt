@@ -294,7 +294,7 @@ BEGIN
 		NUMERO_DE_SERIE int not null,
 		MAC_ADDRESS varchar(12),
 		FK_ID_MODELO int not null,
-		BLOQUEADO char check (bool in (0,1)),
+		BLOQUEADO boolean not null default 0,
 		primary key(ID_APARELHO),
         foreign key(FK_ID_MODELO) references TBT_MODELOS_DE_CELULAR(ID_MODELO)
 	);

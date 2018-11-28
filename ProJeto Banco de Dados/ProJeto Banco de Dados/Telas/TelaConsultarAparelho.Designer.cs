@@ -1,6 +1,6 @@
 ﻿namespace ProJeto_Banco_de_Dados
 {
-    partial class TelaConsultarCelular
+    partial class TelaConsultarAparelho
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaConsultarCelular));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaConsultarAparelho));
             this.txtFuncionario = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtLinha = new System.Windows.Forms.TextBox();
@@ -255,7 +255,7 @@
             this.txtBloqueado.Size = new System.Drawing.Size(100, 20);
             this.txtBloqueado.TabIndex = 42;
             // 
-            // TelaConsultarCelular
+            // TelaConsultarAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,9 +286,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Name = "TelaConsultarCelular";
+            this.Name = "TelaConsultarAparelho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConsultarCelular";
+            this.Text = "MobileControl - Consultar Aparelho";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

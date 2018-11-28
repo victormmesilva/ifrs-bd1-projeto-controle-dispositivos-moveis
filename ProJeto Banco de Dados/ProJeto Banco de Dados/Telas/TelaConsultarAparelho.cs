@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace ProJeto_Banco_de_Dados
 {
-    public partial class TelaConsultarCelular : Form
+    public partial class TelaConsultarAparelho : Form
     {
         //private string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
         //MySqlConnection objConexao = null;
         //MySqlCommand comando_consultar = null;
 
        
-        public TelaConsultarCelular()
+        public TelaConsultarAparelho()
         {
             InitializeComponent();
         }
@@ -142,7 +142,7 @@ namespace ProJeto_Banco_de_Dados
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            TelaConsultarCelular.ActiveForm.Close();
+            TelaConsultarAparelho.ActiveForm.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

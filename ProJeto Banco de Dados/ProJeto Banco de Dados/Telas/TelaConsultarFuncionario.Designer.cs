@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,17 +53,27 @@
             this.dgView.Size = new System.Drawing.Size(776, 347);
             this.dgView.TabIndex = 2;
             // 
-            // ConsultarFuncionario
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(138, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Consulta Aparelhos";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // TelaConsultarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProJeto_Banco_de_Dados.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dgView);
             this.Controls.Add(this.button1);
-            this.Name = "ConsultarFuncionario";
-            this.Text = "ConsultarFuncionario";
+            this.Name = "TelaConsultarFuncionario";
+            this.Text = "MobileControl - Consultar Funcionario";
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.ResumeLayout(false);
 
@@ -72,5 +83,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgView;
+        private System.Windows.Forms.Button button2;
     }
 }
