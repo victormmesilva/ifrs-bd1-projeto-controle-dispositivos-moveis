@@ -59,6 +59,7 @@
     <Compile Include="Classes\Genero.cs" />
     <Compile Include="Classes\LinhaTelefonica.cs" />
     <Compile Include="Classes\MarcaDeCelular.cs" />
+    <Compile Include="Classes\ModeloComboBox.cs" />
     <Compile Include="Classes\ModeloDeCelular.cs" />
     <Compile Include="Classes\OperadoraTelefonica.cs" />
     <Compile Include="Classes\Rua.cs" />
@@ -69,23 +70,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Telas\IncluirFoto.cs">
+    <Compile Include="Telas\TelaConsultarAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\IncluirFoto.Designer.cs">
-      <DependentUpon>IncluirFoto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Telas\TelaConsultarCelular.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Telas\TelaConsultarCelular.Designer.cs">
-      <DependentUpon>TelaConsultarCelular.cs</DependentUpon>
+    <Compile Include="Telas\TelaConsultarAparelho.Designer.cs">
+      <DependentUpon>TelaConsultarAparelho.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\TelaConsultarFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Telas\TelaConsultarFuncionario.Designer.cs">
       <DependentUpon>TelaConsultarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\TelaDistribuirAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaDistribuirAparelho.Designer.cs">
+      <DependentUpon>TelaDistribuirAparelho.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\TelaInicial.cs">
       <SubType>Form</SubType>
@@ -102,14 +103,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Telas\IncluirFoto.resx">
-      <DependentUpon>IncluirFoto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Telas\TelaConsultarCelular.resx">
-      <DependentUpon>TelaConsultarCelular.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\TelaConsultarAparelho.resx">
+      <DependentUpon>TelaConsultarAparelho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaConsultarFuncionario.resx">
       <DependentUpon>TelaConsultarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaDistribuirAparelho.resx">
+      <DependentUpon>TelaDistribuirAparelho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>

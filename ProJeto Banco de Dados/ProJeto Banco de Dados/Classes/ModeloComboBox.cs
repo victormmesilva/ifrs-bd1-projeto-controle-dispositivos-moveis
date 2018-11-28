@@ -9,6 +9,6 @@ namespace ProJeto_Banco_de_Dados.Classes
     public class ModeloComboBox
     {
         public int ID { get; set; }
-        public string Descricao { get; set; }
+        public string Descricao { get; set; }        
     }
 }

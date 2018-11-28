@@ -30,15 +30,18 @@ namespace ProJeto_Banco_de_Dados
             Dados_insert = new Dados();
         }
 
-        private void carregaComboMarca()
+        private void CarregaComboMarca()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
-            List<String> strList = new List<String>();
+            List<ModeloComboBox> lstMarcas = new List<ModeloComboBox>
+            {
+                new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+            };
 
-
-            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
-            string comando = "SELECT * FROM TBT_MARCAS_DE_CELULAR";
+            string comando =    " SELECT    ID_MARCA," +
+                                "           NOME_MARCA " +
+                                "FROM TBT_MARCAS_DE_CELULAR";
 
             MySqlCommand comando_marca = con.comando_banco(comando, conectar);
 
@@ -46,28 +49,38 @@ namespace ProJeto_Banco_de_Dados
             con.open(conectar);
             meu_reader = comando_marca.ExecuteReader();
 
-            int i = 0;
             if (meu_reader.HasRows)
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("NOME_MARCA"));
-                    cbxMarca.Items.Add(strList[i++]);
+                    lstMarcas.Add(
+                        new ModeloComboBox
+                        {
+                            ID = Int32.Parse(meu_reader.GetString("ID_MARCA")),
+                            Descricao = meu_reader.GetString("NOME_MARCA")
+                        });
                 }
+                cbxMarca.DataSource = lstMarcas;
+                cbxMarca.ValueMember = "ID";
+                cbxMarca.DisplayMember = "Descricao"; 
+                cbxMarca.Enabled = true;
             }
-            con.close(conectar);
-            cbxMarca.Enabled = true;
+            con.close(conectar);           
         }
 
-        private void carregaComboOperadora()
+        private void CarregaComboOperadora()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
-            List<String> strList = new List<String>();
 
+            List<ModeloComboBox> lstOperadoras = new List<ModeloComboBox>
+            {
+                new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+            };
 
-            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
-            string comando = "SELECT * FROM TBT_OPERADORAS_TELEFONICAS";
+            string comando =    " SELECT    ID_OPERADORA " +
+                                "           NOME_OPERADORA " +
+                                " FROM TBT_OPERADORAS_TELEFONICAS";
 
             MySqlCommand comando_operadora = con.comando_banco(comando, conectar);
 
@@ -80,21 +93,30 @@ namespace ProJeto_Banco_de_Dados
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("NOME_OPERADORA"));
-                    cbxOperadora.Items.Add(strList[i++]);
+                    lstOperadoras.Add(new ModeloComboBox {
+                        ID = Int32.Parse(meu_reader.GetString("ID_OPERADORA")),
+                        Descricao = meu_reader.GetString("NOME_OPERADORA")
+                     });
                 }
+                cbxOperadora.DataSource = lstOperadoras;
+                cbxOperadora.ValueMember = "ID";
+                cbxOperadora.DisplayMember = "Descricao";
+                cbxOperadora.Enabled = true;
             }
-            con.close(conectar);
+            con.close(conectar);            
         }
 
-        private void carregaComboDDI()
+        private void CarregaComboDDI()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
-            List<String> strList = new List<String>();
+
+            List<ModeloComboBox> lstDDI = new List<ModeloComboBox>
+            {
+                new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+            };
 
 
-            //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
             string comando = " SELECT ID_PAIS, " +
                              "        CONCAT(DDI, ' - ', NOME_PAIS) AS DDI " +  
                              " FROM TBT_PAISES " +
@@ -111,19 +133,29 @@ namespace ProJeto_Banco_de_Dados
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("DDI"));
-                    cbxDDI.Items.Add(strList[i++]);
+                    lstDDI.Add(
+                        new ModeloComboBox {
+                            ID = Int32.Parse(meu_reader.GetString("ID_PAIS")),
+                            Descricao = meu_reader.GetString("DDI")
+                        });
                 }
+                cbxDDI.DataSource = lstDDI;
+                cbxDDI.ValueMember = "ID";
+                cbxDDI.DisplayMember = "Descricao";
+                cbxDDI.Enabled = true;
             }
-            con.close(conectar);
+            con.close(conectar);            
         }
 
-        private void carregaComboDDD()
+        private void CarregaComboDDD()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
-            List<String> strList = new List<String>();
 
+            List<ModeloComboBox> lstDDD = new List<ModeloComboBox>
+            {
+                new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+            };
 
             //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
             string comando = " SELECT ID_CIDADE, " +
@@ -142,14 +174,21 @@ namespace ProJeto_Banco_de_Dados
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("DDD"));
-                    cbxDDD.Items.Add(strList[i++]);
+                    lstDDD.Add(
+                        new ModeloComboBox {
+                            ID = Int32.Parse(meu_reader.GetString("ID_CIDADE")),
+                            Descricao = meu_reader.GetString("DDD")
+                        });
                 }
+                cbxDDD.DataSource = lstDDD;
+                cbxDDD.ValueMember = "ID";
+                cbxDDD.DisplayMember = "Descricao";
+                cbxDDD.Enabled = true;
             }
-            con.close(conectar);
+            con.close(conectar);            
         }
         
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void BtnSalvar_Click(object sender, EventArgs e)
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao(); // chamando o metodo de conexao e atribuindo no conectar o retorno do metodo
@@ -190,19 +229,23 @@ namespace ProJeto_Banco_de_Dados
 
         }
         
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void BtnFechar_Click(object sender, EventArgs e)
         {
             TelaDistribuirAparelho.ActiveForm.Close();
         }
         
-        private void carregaComboLinha()
+        private void CarregaComboLinha()
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
-            List<String> strList = new List<String>();
-           
+
+            List<ModeloComboBox> lstLinhas = new List<ModeloComboBox>
+            {
+                new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+            };
+
             string comando =    " SELECT     " +
-                                " l.ID_LINHA, " +
+                                " l.ID_LINHA AS ID_LINHA, " +
                                 " CONCAT('(', p.DDI, ') ', c.DDD, ' ', l.NUMERO_TELEFONE) AS TELEFONE " +
                                 " from tbt_linhas_telefonicas l " +
                                 " INNER JOIN tbt_cidades c " +
@@ -225,12 +268,20 @@ namespace ProJeto_Banco_de_Dados
             {
                 while (meu_reader.Read())
                 {
-                    strList.Add(meu_reader.GetString("TELEFONE"));
-                    cbxLinha.Items.Add(strList[i++]);
+                    lstLinhas.Add(
+                    new ModeloComboBox
+                    {
+                        ID = Int32.Parse(meu_reader.GetString("ID_LINHA")),
+                        Descricao = meu_reader.GetString("TELEFONE")
+                    });                    
                 }
+                cbxLinha.DataSource = lstLinhas;
+                cbxLinha.ValueMember = "ID";
+                cbxLinha.DisplayMember = "Descricao";
             }
             else
                 MessageBox.Show("Nenhuma linha disponível!", "Linha Indisponível", MessageBoxButtons.OK);
+
             con.close(conectar);
         }
 
@@ -262,20 +313,11 @@ namespace ProJeto_Banco_de_Dados
             con.close(conectar);
         }
 
-        private void carregaComboModelo(string filtro)
+        private void carregaComboModelo(string id_marca)
         {
             Conexao con = new Conexao();    // criando objeto de conexao
             MySqlConnection conectar = con.ObjConexao();
             List<ModeloComboBox> lstModelos = new List<ModeloComboBox>();
-
-
-            //string comando =    " SELECT ID_MODELO," +
-            //                    " NOME_MODELO" +
-            //                    " FROM tbt_modelos_de_celular MD " +
-            //                    " INNER JOIN tbt_marcas_de_celular MC " +
-            //                    " ON MC.ID_MARCA = MD.FK_ID_MARCA_CELULAR " +
-            //                    " WHERE NOME_MARCA = @filtro " +
-            //                    " ORDER BY NOME_MARCA ";
 
             string comando =    " SELECT a.ID_APARELHO, " +
                                 " mc.NOME_MODELO " +
@@ -292,7 +334,7 @@ namespace ProJeto_Banco_de_Dados
 
             MySqlDataReader meu_reader;
             con.open(conectar);
-            comando_modelo.Parameters.Add(new MySqlParameter("@filtro", filtro));
+            comando_modelo.Parameters.Add(new MySqlParameter("@ID_MARCA", id_marca));
 
 
             meu_reader = comando_modelo.ExecuteReader();
@@ -351,7 +393,7 @@ namespace ProJeto_Banco_de_Dados
 
         private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
         {                        
-            carregaComboDDI();
+            CarregaComboDDI();
             cbxDDI.Enabled = true;
             CarregaFichaTecnica(cbxModelo.SelectedValue.ToString());
         }
@@ -405,25 +447,25 @@ namespace ProJeto_Banco_de_Dados
 
         private void cbxFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregaComboMarca();
+            CarregaComboMarca();
             cbxMarca.Enabled = true;            
         }
 
         private void cbxDDI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregaComboDDD();
+            CarregaComboDDD();
             cbxDDD.Enabled = true;
         }
 
         private void cbxDDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregaComboOperadora();
+            CarregaComboOperadora();
             cbxOperadora.Enabled = true;
         }
 
         private void cbxOperadora_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregaComboLinha();
+            CarregaComboLinha();
             cbxLinha.Enabled = true;
         }
 
@@ -454,7 +496,7 @@ namespace ProJeto_Banco_de_Dados
                 Dados_insert.Id_funcionario = Int32.Parse(meu_reader.GetString("id_funcionario"));
                 lblNome.Text = meu_reader.GetString("NOME_COMPLETO");
                 lblNome.ForeColor = System.Drawing.Color.Black;
-                carregaComboMarca();                
+                CarregaComboMarca();                
             }
             else {
                 lblNome.Text = "CPF INVÁLIDO";
