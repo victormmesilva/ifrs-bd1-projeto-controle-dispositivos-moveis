@@ -200,7 +200,8 @@ namespace ProJeto_Banco_de_Dados
                                                                       " VALUES (    @ID_FUNCIONARIO," +
                                                                                   " @ID_APARELHO );" +
                             " UPDATE tbt_linhas_telefonicas " +
-                            " SET fk_id_aparelho = @ID_APARELHO" +
+                            " SET fk_id_aparelho = @ID_APARELHO, " +
+                            " fk_id_operadora = @ID_OPERADORA " +
                             " WHERE id_linha = @ID_LINHA;";
 
 
@@ -212,7 +213,8 @@ namespace ProJeto_Banco_de_Dados
 
                 comando_insert.Parameters.Add(new MySqlParameter("@ID_FUNCIONARIO", Dados_insert.Id_funcionario));
                 comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", Dados_insert.Id_aparelho));
-                comando_insert.Parameters.Add(new MySqlParameter("@ID_LINHA", Dados_insert.Id_linha));
+                comando_insert.Parameters.Add(new MySqlParameter("@ID_LINHA", cbxOperadora.SelectedValue.ToString()));
+                comando_insert.Parameters.Add(new MySqlParameter("@ID_OPERADORA", Dados_insert.Id_linha));
 
                 meu_reader = comando_insert.ExecuteReader();
 
@@ -229,8 +231,13 @@ namespace ProJeto_Banco_de_Dados
 
 
 
+
+
+
+
+
         }
-        
+
         private void BtnFechar_Click(object sender, EventArgs e)
         {
             TelaDistribuirAparelho.ActiveForm.Close();
