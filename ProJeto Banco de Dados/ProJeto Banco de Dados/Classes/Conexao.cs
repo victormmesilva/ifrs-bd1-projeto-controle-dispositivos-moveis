@@ -11,8 +11,13 @@ namespace ProJeto_Banco_de_Dados.Classes
 {
     public class Conexao
     {
-        private readonly string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=mysqladmin";
-        private readonly string _conection_criarBanco = "Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin";
+        //Victor
+        //private readonly string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=mysqladmin";
+        //private readonly string _conection_criarBanco = "Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin";
+        //Ederson
+        private readonly string _conection = "Server=localhost;port=3306;UId=root;Database=PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS; Pwd=root";
+        private readonly string _conection_criarBanco = "Server=localhost;port=3306;UId=root;Database=mysql; Pwd=root";
+
         private string fltro;
 
         public  MySqlConnection ObjConexao(){
@@ -49,7 +54,10 @@ namespace ProJeto_Banco_de_Dados.Classes
             try
             {
                 Conexao con = new Conexao();
-                MySqlConnection conectar = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin");
+                //Victor
+                //MySqlConnection conectar = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=mysql; Pwd=mysqladmin");
+                //Ederson
+                MySqlConnection conectar = new MySqlConnection("Server=localhost;port=3306;UId=root;Database=mysql; Pwd=root");
 
                 string comando = "create database if not exists projeto_controle_de_dispositivos_moveis";
 
@@ -74,9 +82,10 @@ namespace ProJeto_Banco_de_Dados.Classes
 
                 Conexao con = new Conexao();
                 MySqlConnection conectar = con.ObjConexao();
-
-                string cmd_procedure = System.IO.File.ReadAllText(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\CriarBanco.txt");
-
+                //Victor 
+                //string cmd_procedure = System.IO.File.ReadAllText(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\CriarBanco.txt");
+                //Ederson
+                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\CriarBanco.txt");
                 MySqlCommand comando_criarProcedure= con.comando_banco(cmd_procedure, conectar);
                 MySqlDataReader meu_reader_procedure;
                 con.open(conectar);
@@ -148,22 +157,40 @@ namespace ProJeto_Banco_de_Dados.Classes
         public static void CarregarFoto()
         {
             List<FotoModelo> fstream = new List<FotoModelo>{
-                new FotoModelo {IdModelo = 1,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\1.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 2,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\2.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 3,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\3.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 4,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\4.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 5,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\5.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 6,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\6.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 7,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\7.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 8,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\8.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 9,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\9.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 10,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\10.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 11,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\11.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 12,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\12.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 13,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\13.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 14,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\14.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 15,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\15.png", FileMode.Open, FileAccess.Read)},
-                new FotoModelo {IdModelo = 16,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\16.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 1,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\1.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 2,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\2.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 3,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\3.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 4,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\4.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 5,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\5.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 6,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\6.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 7,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\7.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 8,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\8.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 9,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\9.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 10,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\10.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 11,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\11.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 12,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\12.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 13,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\13.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 14,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\14.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 15,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\15.png", FileMode.Open, FileAccess.Read)},
+                //new FotoModelo {IdModelo = 16,Foto = new FileStream(@"C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\Modelos\16.png", FileMode.Open, FileAccess.Read)},
+
+                new FotoModelo {IdModelo = 1,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\1.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 2,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\2.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 3,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\3.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 4,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\4.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 5,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\5.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 6,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\6.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 7,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\7.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 8,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\8.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 9,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\9.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 10,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\10.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 11,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\11.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 12,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\12.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 13,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\13.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 14,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\14.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 15,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\15.png", FileMode.Open, FileAccess.Read)},
+                new FotoModelo {IdModelo = 16,Foto = new FileStream(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\16.png", FileMode.Open, FileAccess.Read)},
+                
                 
                 
                 

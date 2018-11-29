@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastrarAparelho));
             this.btnSalvar = new System.Windows.Forms.Button();
             this.imgModelo = new System.Windows.Forms.PictureBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(397, 233);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 6;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -73,7 +74,7 @@
             this.txtSenha.Location = new System.Drawing.Point(397, 181);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(100, 25);
-            this.txtSenha.TabIndex = 7;
+            this.txtSenha.TabIndex = 6;
             // 
             // txtImei
             // 
@@ -81,7 +82,7 @@
             this.txtImei.Location = new System.Drawing.Point(397, 150);
             this.txtImei.Name = "txtImei";
             this.txtImei.Size = new System.Drawing.Size(125, 25);
-            this.txtImei.TabIndex = 8;
+            this.txtImei.TabIndex = 5;
             // 
             // txtMacAdress
             // 
@@ -89,7 +90,7 @@
             this.txtMacAdress.Location = new System.Drawing.Point(397, 119);
             this.txtMacAdress.Name = "txtMacAdress";
             this.txtMacAdress.Size = new System.Drawing.Size(125, 25);
-            this.txtMacAdress.TabIndex = 9;
+            this.txtMacAdress.TabIndex = 4;
             // 
             // txtNumeroSerie
             // 
@@ -97,7 +98,7 @@
             this.txtNumeroSerie.Location = new System.Drawing.Point(397, 88);
             this.txtNumeroSerie.Name = "txtNumeroSerie";
             this.txtNumeroSerie.Size = new System.Drawing.Size(145, 25);
-            this.txtNumeroSerie.TabIndex = 10;
+            this.txtNumeroSerie.TabIndex = 3;
             // 
             // cbxMarca
             // 
@@ -106,7 +107,7 @@
             this.cbxMarca.Location = new System.Drawing.Point(397, 26);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(145, 25);
-            this.cbxMarca.TabIndex = 11;
+            this.cbxMarca.TabIndex = 1;
             this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.cbxMarca_SelectedIndexChanged);
             // 
             // cbxModelo
@@ -116,7 +117,7 @@
             this.cbxModelo.Location = new System.Drawing.Point(397, 57);
             this.cbxModelo.Name = "cbxModelo";
             this.cbxModelo.Size = new System.Drawing.Size(145, 25);
-            this.cbxModelo.TabIndex = 12;
+            this.cbxModelo.TabIndex = 2;
             this.cbxModelo.SelectedIndexChanged += new System.EventHandler(this.cbxModelo_SelectedIndexChanged);
             // 
             // lbSenha
@@ -186,7 +187,7 @@
             this.button1.Location = new System.Drawing.Point(308, 233);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Novo";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -210,7 +211,9 @@
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.imgModelo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaCadastrarAparelho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MobileControl - Cadastro de Aparelho";
             this.Load += new System.EventHandler(this.IncluirFoto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgModelo)).EndInit();

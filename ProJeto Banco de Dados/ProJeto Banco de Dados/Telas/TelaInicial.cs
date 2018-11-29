@@ -55,8 +55,8 @@ namespace ProJeto_Banco_de_Dados
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaDistribuirAparelho cadastro_celular = new TelaDistribuirAparelho();
-            cadastro_celular.Show();
-            
+            cadastro_celular.ShowDialog();
+
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,15 +73,15 @@ namespace ProJeto_Banco_de_Dados
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaConsultarFuncionario consulta_funcionario = new TelaConsultarFuncionario();
-            consulta_funcionario.Show();
+            consulta_funcionario.ShowDialog();
 
-           
+
         }
 
         private void inserirFotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaCadastrarAparelho consultar_celular = new TelaCadastrarAparelho();
-            consultar_celular.Show();
+            consultar_celular.ShowDialog();
         }
     }
 }

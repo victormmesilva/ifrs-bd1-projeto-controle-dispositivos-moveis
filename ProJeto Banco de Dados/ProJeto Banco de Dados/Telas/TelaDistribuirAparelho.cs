@@ -78,7 +78,7 @@ namespace ProJeto_Banco_de_Dados
                 new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
             };
 
-            string comando =    " SELECT    ID_OPERADORA " +
+            string comando =    " SELECT    ID_OPERADORA, " +
                                 "           NOME_OPERADORA " +
                                 " FROM TBT_OPERADORAS_TELEFONICAS";
 
@@ -88,21 +88,23 @@ namespace ProJeto_Banco_de_Dados
             con.open(conectar);
             meu_reader = comando_operadora.ExecuteReader();
 
-            int i = 0;
-            if (meu_reader.HasRows)
-            {
-                while (meu_reader.Read())
+            
+                if (meu_reader.HasRows)
                 {
-                    lstOperadoras.Add(new ModeloComboBox {
-                        ID = Int32.Parse(meu_reader.GetString("ID_OPERADORA")),
-                        Descricao = meu_reader.GetString("NOME_OPERADORA")
-                     });
+                    while (meu_reader.Read())
+                    {
+                        lstOperadoras.Add(new ModeloComboBox
+                        {
+                            ID = Int32.Parse(meu_reader.GetString("ID_OPERADORA")),
+                            Descricao = meu_reader.GetString("NOME_OPERADORA")
+                        });
+                    }
+                    cbxOperadora.DataSource = lstOperadoras;
+                    cbxOperadora.ValueMember = "ID";
+                    cbxOperadora.DisplayMember = "Descricao";
+                    cbxOperadora.Enabled = true;
                 }
-                cbxOperadora.DataSource = lstOperadoras;
-                cbxOperadora.ValueMember = "ID";
-                cbxOperadora.DisplayMember = "Descricao";
-                cbxOperadora.Enabled = true;
-            }
+            
             con.close(conectar);            
         }
 
@@ -169,7 +171,7 @@ namespace ProJeto_Banco_de_Dados
             con.open(conectar);
             meu_reader = comando_ddd.ExecuteReader();
 
-            int i = 0;
+           // int i = 0;
             if (meu_reader.HasRows)
             {
                 while (meu_reader.Read())
@@ -275,6 +277,7 @@ namespace ProJeto_Banco_de_Dados
                         Descricao = meu_reader.GetString("TELEFONE")
                     });                    
                 }
+                Dados_insert.Id_linha = Int32.Parse(meu_reader.GetString("ID_LINHA"));
                 cbxLinha.DataSource = lstLinhas;
                 cbxLinha.ValueMember = "ID";
                 cbxLinha.DisplayMember = "Descricao";
@@ -315,46 +318,57 @@ namespace ProJeto_Banco_de_Dados
 
         private void carregaComboModelo(string id_marca)
         {
-            Conexao con = new Conexao();    // criando objeto de conexao
-            MySqlConnection conectar = con.ObjConexao();
-            List<ModeloComboBox> lstModelos = new List<ModeloComboBox>();
+                Conexao con = new Conexao();    // criando objeto de conexao
+                MySqlConnection conectar = con.ObjConexao();
+                List<ModeloComboBox> lstModelos = new List<ModeloComboBox> {
+                        new ModeloComboBox { ID = 0, Descricao = "SELECIONE" }
+                    };
 
-            string comando =    " SELECT a.ID_APARELHO, " +
-                                " mc.NOME_MODELO " +
-                                " FROM tbt_funcionarios_aparelhos fa " +
-                                " RIGHT JOIN tbt_aparelhos a " +
-                                " ON fa.FK_ID_APARELHO = a.ID_APARELHO " +
-                                " INNER JOIN tbt_modelos_de_celular mc " +
-                                " ON a.FK_ID_MODELO = mc.ID_MODELO " +
-                                " WHERE fa.FK_ID_APARELHO IS NULL " +
-                                " AND fa.FK_ID_FUNCIONARIO IS NULL " +
-                                " AND mc.FK_ID_MARCA_CELULAR = @ID_MARCA ";
+                string comando = " SELECT a.ID_APARELHO, " +
+                                    " mc.NOME_MODELO " +
+                                    " FROM tbt_funcionarios_aparelhos fa " +
+                                    " RIGHT JOIN tbt_aparelhos a " +
+                                    " ON fa.FK_ID_APARELHO = a.ID_APARELHO " +
+                                    " INNER JOIN tbt_modelos_de_celular mc " +
+                                    " ON a.FK_ID_MODELO = mc.ID_MODELO " +
+                                    " WHERE fa.FK_ID_APARELHO IS NULL " +
+                                    " AND fa.FK_ID_FUNCIONARIO IS NULL " +
+                                    " AND mc.FK_ID_MARCA_CELULAR = @ID_MARCA ";
 
-            MySqlCommand comando_modelo = con.comando_banco(comando, conectar);
+                MySqlCommand comando_modelo = con.comando_banco(comando, conectar);
 
-            MySqlDataReader meu_reader;
-            con.open(conectar);
-            comando_modelo.Parameters.Add(new MySqlParameter("@ID_MARCA", id_marca));
+                MySqlDataReader meu_reader;
+                con.open(conectar);
+                comando_modelo.Parameters.Add(new MySqlParameter("@ID_MARCA", id_marca));
 
 
-            meu_reader = comando_modelo.ExecuteReader();
-            lstModelos.Clear();
+                meu_reader = comando_modelo.ExecuteReader();
 
-            if (meu_reader.HasRows)
-            {
-                while (meu_reader.Read())
+
+                if (meu_reader.HasRows)
                 {
-                    lstModelos.Add(new ModeloComboBox
+
+                    while (meu_reader.Read())
                     {
-                        ID = Int32.Parse(meu_reader.GetString("ID_MODELO")),
-                        Descricao = meu_reader.GetString("NOME_MODELO")
-                    });
+
+                        lstModelos.Add(new ModeloComboBox
+                        {
+
+                            ID = Int32.Parse(meu_reader.GetString("ID_APARELHO")),
+                            Descricao = meu_reader.GetString("NOME_MODELO")
+                        });
+                    }
+                    Dados_insert.Id_aparelho = Int32.Parse(meu_reader.GetString("ID_APARELHO"));
+                    con.close(conectar);
+                    cbxModelo.DataSource = lstModelos;
+                    cbxModelo.ValueMember = "ID";
+                    cbxModelo.DisplayMember = "Descricao";
                 }
-            }  
-            con.close(conectar);
-            cbxModelo.DataSource = lstModelos;
-            cbxModelo.ValueMember = "ID";
-            cbxModelo.DisplayMember = "Descricao";
+                else
+                {
+                    MessageBox.Show("Nao há Modelos Disponivel para essa marca");
+                }
+
         }
 
         private void carregaFoto(string index)
@@ -392,12 +406,15 @@ namespace ProJeto_Banco_de_Dados
         }
 
         private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
-        {                        
-            CarregaComboDDI();
-            cbxDDI.Enabled = true;
-            CarregaFichaTecnica(cbxModelo.SelectedValue.ToString());
-        }
+        {
+            if (cbxModelo.SelectedIndex != 0)
+            {
+                CarregaComboDDI();
+                cbxDDI.Enabled = true;
+                CarregaFichaTecnica(cbxModelo.SelectedValue.ToString());
 
+            }
+        }
         private void CarregaFichaTecnica(string idModelo)
         {
             Conexao con = new Conexao();
@@ -441,8 +458,13 @@ namespace ProJeto_Banco_de_Dados
 
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregaComboModelo(cbxMarca.Text.Trim());
-            cbxModelo.Enabled = true;           
+
+
+            if (cbxMarca.SelectedIndex != 0)
+            {
+                carregaComboModelo(cbxMarca.SelectedValue.ToString());
+                cbxModelo.Enabled = true;
+            }
         }
 
         private void cbxFuncionario_SelectedIndexChanged(object sender, EventArgs e)
@@ -453,20 +475,29 @@ namespace ProJeto_Banco_de_Dados
 
         private void cbxDDI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregaComboDDD();
-            cbxDDD.Enabled = true;
+            if (cbxDDI.SelectedIndex != 0)
+            {
+                CarregaComboDDD();
+                cbxDDD.Enabled = true;
+            }
         }
 
         private void cbxDDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregaComboOperadora();
-            cbxOperadora.Enabled = true;
+            if (cbxDDD.SelectedIndex != 0)
+            {
+                CarregaComboOperadora();
+                cbxOperadora.Enabled = true;
+            }
         }
 
         private void cbxOperadora_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregaComboLinha();
-            cbxLinha.Enabled = true;
+            if (cbxOperadora.SelectedIndex != 0)
+            {
+                CarregaComboLinha();
+                cbxLinha.Enabled = true;
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
