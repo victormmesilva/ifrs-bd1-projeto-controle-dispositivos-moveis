@@ -15,29 +15,8 @@ BEGIN
 		insert into TBT_PAISES(ID_PAIS,NOME_PAIS,DDI) 
 		values	(null,'BRASIL',55),
 				(null,'ARGENTINA',54),
-				(null,'BOLÍVIA',591),
-				(null,'CHILE',56),
-				(null,'COLÔMBIA',57),
-				(null,'EQUADOR',593),
-				(null,'GUIANA',592),
-				(null,'PARAGUAI',595),
-				(null,'PERU',51),
-				(null,'SURINAME',597),
-				(null,'URUGUAI',598),
-				(null,'VENEZUELA',58),
-				(null,'AFGHANISTÃO',93),
-				(null,'AUSTRÁLIA',61),
-				(null,'BAHAMAS',994),
-				(null,'CATAR',974),
-				(null,'DINAMARCA',1767),
-				(null,'ESPANHA',34),
-				(null,'GRECIA',30),
-				(null,'LETONIA',371),
-				(null,'LIBIA',218),
-				(null,'SUECIA',46),
-				(null,'SUIÇA',41),
-				(null,'URUGUAI',598),
-				(null,'UCRANIA',380);
+				(null,'ESTADOS UNIDOS',591);
+				
 
 	
 #TBT_ESTADOS
@@ -51,25 +30,14 @@ BEGIN
 	);
 		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'RIO GRANDE DO SUL', 'RS',1);
 		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'SANTA CATARINA', 'SC',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'PARANÁ', 'PR',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'SÃO PAULO', 'SP',1);
 		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'RIO DE JANEIRO', 'RJ',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'AMAZONAS', 'AM',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'MINAS GERAIS', 'MG',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'ESPÍRITO SANTO', 'ES',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'BAHIA', 'BA',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'CEARA', 'CE',1);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'BERLIM', 'AF',2);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'VIENA', 'VN',2);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'SANTIAGO', 'ST',2);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'CALIFORNIA', 'CF',3);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'MADRI', 'MD',3);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'QUITO', 'QT',3);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'WASHITON', 'WS',5);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'TALIM', 'TM',5);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'CAIRO', 'CR',5);
-		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'PARIS', 'PS',5);
-	
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'BUENOS AIRES', 'BA',2);
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'La Plata', 'LP',2);
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'Santa Rosa', 'SR',2);
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'FLORIDA', 'FL',3);
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'NEVADA', 'NE',3);
+		insert into TBT_ESTADOS(ID_ESTADO,NOME_ESTADO,SIGLA_ESTADO,FK_ID_PAIS) values (null,'CALIFORNIA', 'CA',3);
+
 #TBT_CIDADES
 	CREATE TABLE IF NOT EXISTS TBT_CIDADES(
 		ID_CIDADE int auto_increment not null,
@@ -80,21 +48,16 @@ BEGIN
 		foreign key(FK_ID_ESTADO) references TBT_ESTADOS(ID_ESTADO)
 	);
 		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'PORTO ALEGRE',51,1);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'ALEGRETE', 55,1);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'RIO DE JANEIRO',21,5);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'SAO PAULO',11,4);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'SALVADOR',71,9);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'BELO HORIZONTE',31,7);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'FORTALEZA',85,10);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'VITORIA',27,8);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'BAGEE',789,1);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'PASSO FUNDO', 788,1);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'TAKIO',787,5);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'MIAMI',786,4);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'LAS VEGAS',785,9);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'LISBOA',784,7);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'FLORES DA CUNHA',783,10);
-		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'RESTIGA',782,8);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'ALEGRETE', 55,2);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'RIO DE JANEIRO',21,3);
+
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'Buenos Aires',11,4);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'CórdobaR',71,5);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'Entre Ríos',31,6);
+
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'Washington',85,7);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'Houston',27,8);
+		insert into TBT_CIDADES(ID_CIDADE,NOME_CIDADE,DDD,FK_ID_ESTADO) values (null, 'Dallas',789,9);
 
 
 	
