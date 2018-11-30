@@ -12,7 +12,6 @@ D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJe
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\MySql.Data.xml
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaConsultarFuncionario.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaInicial.resources
-D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto Banco de Dados.csprojAssemblyReference.cache
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS-Bd1\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.exe.config
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS-Bd1\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.exe
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS-Bd1\ProJeto Banco de Dados\ProJeto Banco de Dados\bin\Debug\ProJeto Banco de Dados.pdb
@@ -49,3 +48,5 @@ C:\Users\c1n2v\Documents\git\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Ban
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaConsultarAparelho.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.TelaDistribuirAparelho.resources
 D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Telas.TelaCadastrarAparelho.resources
+D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Telas.TelaComandoSql.resources
+D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\obj\Debug\ProJeto_Banco_de_Dados.Telas.TelaLoginComandos.resources

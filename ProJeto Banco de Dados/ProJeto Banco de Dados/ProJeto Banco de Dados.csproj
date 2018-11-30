@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Telas\TelaComandoSql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaComandoSql.Designer.cs">
+      <DependentUpon>TelaComandoSql.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\TelaConsultarAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telas\TelaLoginComandos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaLoginComandos.Designer.cs">
+      <DependentUpon>TelaLoginComandos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Telas\TelaComandoSql.resx">
+      <DependentUpon>TelaComandoSql.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaConsultarAparelho.resx">
       <DependentUpon>TelaConsultarAparelho.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaLoginComandos.resx">
+      <DependentUpon>TelaLoginComandos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

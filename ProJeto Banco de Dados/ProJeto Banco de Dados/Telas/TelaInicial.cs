@@ -83,5 +83,11 @@ namespace ProJeto_Banco_de_Dados
             TelaCadastrarAparelho consultar_celular = new TelaCadastrarAparelho();
             consultar_celular.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            TelaLoginComandos telalogin = new TelaLoginComandos();
+            telalogin.ShowDialog();
+        }
     }
 }
