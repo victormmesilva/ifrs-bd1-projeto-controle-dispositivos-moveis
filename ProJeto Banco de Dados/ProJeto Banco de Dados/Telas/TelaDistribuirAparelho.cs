@@ -275,7 +275,7 @@ namespace ProJeto_Banco_de_Dados
 
             MySqlDataReader meu_reader;
             con.open(conectar);
-            comando_LInha.Parameters.Add(new MySqlParameter("@filtro", Dados_insert.Id_linha));
+            comando_LInha.Parameters.Add(new MySqlParameter("@filtro", cbxOperadora.SelectedValue));
             meu_reader = comando_LInha.ExecuteReader();
 
             int i = 0;

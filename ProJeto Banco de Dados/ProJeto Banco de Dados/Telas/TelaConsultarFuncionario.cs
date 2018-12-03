@@ -25,15 +25,16 @@ namespace ProJeto_Banco_de_Dados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listaGrid();
+            string view = "select * from view_funcionarios";
+            listaGrid(view);
         }
 
-        public void listaGrid()
+        public void listaGrid(string view)
         {
             Conexao con = new Conexao();
             MySqlConnection conectar = con.ObjConexao();
 
-            string select = "select * from tbt_funcionarios";
+            string select = view;
 
             MySqlCommand comando_consultar = con.comando_banco(select, conectar);
             //objConexao = new MySqlConnection(_conection);
@@ -57,6 +58,36 @@ namespace ProJeto_Banco_de_Dados
 
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string view = "select * from tbt_Aparelhos";
+            listaGrid(view);
+        }
+
+        private void btnRelatorioGeral_Click(object sender, EventArgs e)
+        {
+            string view = "select * from view_relatorio";
+            listaGrid(view);
+        }
+
+        private void btnAparelhosFuncionarios_Click(object sender, EventArgs e)
+        {
+            string view = "select * from view_funcionariosAparelhos";
+            listaGrid(view);
+        }
+
+        private void btnConsultaLinhas_Click(object sender, EventArgs e)
+        {
+            string view = "select * from view_linha";
+            listaGrid(view);
+        }
+
+        private void tbnFila_Click(object sender, EventArgs e)
+        {
+            string view = "select * from view_fila_espera";
+            listaGrid(view);
         }
     }
 }
