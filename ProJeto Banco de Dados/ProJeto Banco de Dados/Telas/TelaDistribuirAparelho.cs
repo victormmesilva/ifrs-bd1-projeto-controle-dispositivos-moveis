@@ -162,18 +162,23 @@ namespace ProJeto_Banco_de_Dados
             //string comando = "select numero_telefone from tbt_linhas_telefonicas order by id_linha";
             string comando = " SELECT ID_CIDADE, " +
                              "        CONCAT(DDD, ' - ', NOME_CIDADE) AS DDD " +
-                             " FROM TBT_CIDADES " +
+                             " FROM TBT_CIDADES c" +
+                             " inner join tbt_estados e" +
+                             " on c.fk_id_estado = e.id_estado " +
+                             " WHERE FK_ID_PAIS = @FILTRO " +
                              " ORDER BY NOME_CIDADE ";
 
             MySqlCommand comando_ddd = con.comando_banco(comando, conectar);
 
             MySqlDataReader meu_reader;
             con.open(conectar);
+            comando_ddd.Parameters.Add(new MySqlParameter("@FILTRO", cbxDDI.SelectedValue));
             meu_reader = comando_ddd.ExecuteReader();
-
-           // int i = 0;
+            
+            // int i = 0;
             if (meu_reader.HasRows)
             {
+                
                 while (meu_reader.Read())
                 {
                     lstDDD.Add(
@@ -200,8 +205,7 @@ namespace ProJeto_Banco_de_Dados
                                                                       " VALUES (    @ID_FUNCIONARIO," +
                                                                                   " @ID_APARELHO );" +
                             " UPDATE tbt_linhas_telefonicas " +
-                            " SET fk_id_aparelho = @ID_APARELHO, " +
-                            " fk_id_operadora = @ID_OPERADORA " +
+                            " SET fk_id_aparelho = @ID_APARELHO " +
                             " WHERE id_linha = @ID_LINHA;";
 
 
@@ -213,8 +217,8 @@ namespace ProJeto_Banco_de_Dados
 
                 comando_insert.Parameters.Add(new MySqlParameter("@ID_FUNCIONARIO", Dados_insert.Id_funcionario));
                 comando_insert.Parameters.Add(new MySqlParameter("@ID_APARELHO", Dados_insert.Id_aparelho));
-                comando_insert.Parameters.Add(new MySqlParameter("@ID_LINHA", cbxOperadora.SelectedValue.ToString()));
-                comando_insert.Parameters.Add(new MySqlParameter("@ID_OPERADORA", Dados_insert.Id_linha));
+                comando_insert.Parameters.Add(new MySqlParameter("@ID_LINHA", Dados_insert.Id_linha));
+                
 
                 meu_reader = comando_insert.ExecuteReader();
 
@@ -264,12 +268,14 @@ namespace ProJeto_Banco_de_Dados
                                 " INNER JOIN tbt_paises p " +
                                 " ON p.ID_PAIS = e.FK_ID_PAIS " +
                                 " where l.FK_ID_APARELHO IS NULL " +
+                                " and FK_ID_OPERADORA = @FILTRO "+
                                 " ORDER BY TELEFONE; "; 
 
             MySqlCommand comando_LInha = con.comando_banco(comando, conectar);
 
             MySqlDataReader meu_reader;
             con.open(conectar);
+            comando_LInha.Parameters.Add(new MySqlParameter("@filtro", Dados_insert.Id_linha));
             meu_reader = comando_LInha.ExecuteReader();
 
             int i = 0;
