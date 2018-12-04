@@ -182,6 +182,7 @@
     <Content Include="Modelos\9.png" />
     <Content Include="Recursos\InserirDados.txt" />
     <Content Include="Recursos\CriarBanco.txt" />
+    <Content Include="Recursos\ProcedureFila.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

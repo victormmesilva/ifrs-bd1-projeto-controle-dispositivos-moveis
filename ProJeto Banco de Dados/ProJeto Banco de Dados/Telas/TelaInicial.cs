@@ -27,6 +27,7 @@ namespace ProJeto_Banco_de_Dados
         {
             Conexao.CriarBancoIniciar();
             Conexao.CriarProcedure();
+            //Conexao.CriarProcedureFila();
             Conexao.CriarTabelas();
             Conexao.insertDados();
             Conexao.CarregarFoto();

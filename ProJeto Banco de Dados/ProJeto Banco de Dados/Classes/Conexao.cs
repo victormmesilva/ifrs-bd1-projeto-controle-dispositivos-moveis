@@ -98,9 +98,35 @@ namespace ProJeto_Banco_de_Dados.Classes
                 MessageBox.Show(ex.Message);
             }
 
+
         }
 
-        public static void insertDados()
+        public static void CriarProcedureFila()
+        {
+            try
+            {
+
+                Conexao con = new Conexao();
+                MySqlConnection conectar = con.ObjConexao();
+
+                string cmd_procedure = System.IO.File.ReadAllText(@"D:\Projetos\PROJETO_CONTROLE_DE_DISPOSITIVOS_MOVEIS\ProJeto Banco de Dados\ProJeto Banco de Dados\Recursos\ProcedureFila.txt");
+
+                MySqlCommand comando_criarProcedure = con.comando_banco(cmd_procedure, conectar);
+                MySqlDataReader meu_reader_procedure;
+                con.open(conectar);
+                meu_reader_procedure = comando_criarProcedure.ExecuteReader();
+                con.close(conectar);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+public static void insertDados()
         {
             try
             {
