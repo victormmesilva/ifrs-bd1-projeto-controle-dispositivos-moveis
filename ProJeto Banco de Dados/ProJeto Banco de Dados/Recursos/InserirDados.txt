@@ -53,25 +53,25 @@ create view view_relatorio as
 
 
 create view view_funcionariosAparelhos as select
-
-
-		TBT_FUNCIONARIOS.ID_FUNCIONARIO 			as 'Id do Funcionário',
-		TBT_FUNCIONARIOS.NOME_COMPLETO 				as 'Nome do Funcionário',
-        TBT_MODELOS_DE_CELULAR.NOME_MODELO 			as 'Modelo do Aparelho',
-        TBT_MARCAS_DE_CELULAR.NOME_MARCA 			as 'Marca do Aparelho',
-        TBT_LINHAS_TELEFONICAS.NUMERO_TELEFONE 		as 'Número do Telefone',
-        TBT_OPERADORAS_TELEFONICAS.NOME_OPERADORA 	as 'Operadora',
-        TBT_CIDADES.DDD 							as 'DDD',
-        TBT_PAISES.DDI 								as 'DDI'
-from TBT_FUNCIONARIOS
-left join TBT_FUNCIONARIOS_APARELHOS	on TBT_FUNCIONARIOS.ID_FUNCIONARIO= TBT_FUNCIONARIOS_APARELHOS.FK_ID_FUNCIONARIO
-left join TBT_MODELOS_DE_CELULAR 		on TBT_MODELOS_DE_CELULAR.ID_MODELO = TBT_FUNCIONARIOS_APARELHOS.FK_ID_APARELHO
-left join TBT_MARCAS_DE_CELULAR 		on TBT_MARCAS_DE_CELULAR.ID_MARCA=TBT_MODELOS_DE_CELULAR.FK_ID_MARCA_CELULAR	 
-left join TBT_LINHAS_TELEFONICAS 		on TBT_LINHAS_TELEFONICAS.ID_LINHA=TBT_FUNCIONARIOS_APARELHOS.FK_ID_APARELHO
-left join TBT_OPERADORAS_TELEFONICAS 	on TBT_OPERADORAS_TELEFONICAS.ID_OPERADORA=TBT_LINHAS_TELEFONICAS.FK_ID_OPERADORA
-left join TBT_CIDADES 					on TBT_CIDADES.ID_CIDADE=TBT_LINHAS_TELEFONICAS.FK_ID_CIDADE
-left join TBT_PAISES					on TBT_PAISES.ID_PAIS=TBT_FUNCIONARIOS_APARELHOS.FK_ID_APARELHO
-order by TBT_FUNCIONARIOS.NOME_COMPLETO;
+			fu.id_funcionario as 'id do Funcionario',
+			fu.nome_completo,
+			a.id_aparelho as 'ID do Aparelho',
+			m.NOME_MODELO,
+			l.NUMERO_TELEFONE,
+			o.NOME_OPERADORA
+						
+		from tbt_funcionarios_aparelhos fa
+		inner join tbt_funcionarios fu
+		on fu.id_funcionario = fa.fk_id_funcionario
+		inner join tbt_aparelhos a
+		on a.id_aparelho = fa.fk_id_aparelho
+		inner join tbt_modelos_de_celular m
+		on m.id_modelo = a.fk_id_modelo
+		left join tbt_linhas_telefonicas l
+		on l.fk_id_aparelho = a.id_aparelho
+		left join tbt_operadoras_telefonicas o 
+		on o.ID_OPERADORA = l.FK_ID_OPERADORA
+		order by FU.NOME_COMPLETO;
 
 create view VIEW_FUNCIONARIOS AS select
 

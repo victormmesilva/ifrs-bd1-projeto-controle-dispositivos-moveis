@@ -1,20 +1,16 @@
-﻿CREATE DEFINER=`root`@`localhost` PROCEDURE `PRO_VERIFICA_LISTA_ESPERA`()
+﻿CREATE PROCEDURE `pro_verifica_lista_de_espera` ()
 BEGIN
-	/* CRIANDO VARIAVEL PEGANDO MAIOR ID DA TBT_APARELHOS*/
 	set @maxAparelho = (select Max(id_aparelho) from tbt_aparelhos);
-    /* CRIANDO VARIAVEL PEGANDO FL_ID_MODELO DA TBT_APARELHOS PASSANDO MAIOR ID DOS APARELHO*/
     set @maxfkAparelho= (select FK_ID_MODELO from tbt_aparelhos where id_aparelho =  @maxAparelho);
-	/* CRIANDO VARIAVEL PEGANDO MENOR POSSIÇÃO DA FILA DE ESPERA PASSANDO O MODELO COMO FILTRO*/  
-	set @minFila = (select Min(POSICAO) from tbt_fila_de_espera where fk_id_modelo = @maxfkAparelho );
-    /* CRIANDO VARIAVEL PEGANDO FL_ID_MODELO DA tbt_fila_de_espera PASSANDO MENOR ID DOS FILA*/ 
+	   
+	set @minFila = (select Min(POSICAO) from tbt_fila_de_espera where fk_id_modelo = @maxfkAparelho ); 
 	set @minfkModelo1 = (select FK_ID_MODELO from tbt_fila_de_espera where posicao = @minFila);
-    /* CRIANDO VARIAVEL PEGANDO ID DO FUNCIONARIO DA fila_de_espera PASSANDO MENOR ID DOS FILA*/ 
     set @idFuncionario = (select FK_ID_FUNCIONARIO from tbt_fila_de_espera where posicao =  @minFila);
     
    
     
     
-	/*Condição do IF*/
+	
     IF exists(
 	   select * from tbt_fila_de_espera fe
 			inner join tbt_modelos_de_celular mc
@@ -23,8 +19,11 @@ BEGIN
      then 
 		INSERT INTO tbt_funcionarios_aparelhos (FK_ID_FUNCIONARIO,FK_ID_APARELHO) VALUES(@idFuncionario,@maxAparelho) ;
 		delete from tbt_fila_de_espera  Where POSICAO = @minFila;
+        set @selecionalinha = (select MIN(ID_LINHA) from tbt_linhas_telefonicas where  FK_ID_APARELHO IS null);
+        update  tbt_linhas_telefonicas SET FK_ID_APARELHO = @maxAparelho WHERE ID_LINHA = @selecionalinha;
+        
+        
 	END IF;
-	/* final do if*/
 
 
 END

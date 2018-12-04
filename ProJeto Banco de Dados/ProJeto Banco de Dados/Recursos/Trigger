@@ -1,0 +1,7 @@
+﻿         USE projeto_controle_de_dispositivos_moveis;
+CREATE TRIGGER trigger_verifica_fila
+AFTER INSERT 
+ON tbt_aparelhos FOR EACH ROW 
+CALL pro_verifica_lista_de_espera
+        
+      

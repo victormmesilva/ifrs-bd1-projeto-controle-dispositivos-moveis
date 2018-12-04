@@ -334,8 +334,8 @@ insert into TBT_TELEFONES_FUNCIONARIOS (ID, FK_ID_FUNCIONARIO, TELEFONE)
 		foreign key(FK_ID_OPERADORA) references TBT_OPERADORAS_TELEFONICAS(ID_OPERADORA)
 	);
 		insert into TBT_LINHAS_TELEFONICAS(ID_LINHA,NUMERO_TELEFONE,FK_ID_CIDADE,FK_ID_APARELHO,FK_ID_OPERADORA)
-		values	(null,99887766,1,null,1),
-				(null,21728391,2,null,2),
+		values	(null,99887766,1,1,1),
+				(null,21728391,2,2,2),
 				(null,83274893,3,null,3),
 				(null,99887766,4,null,4),
 				(null,89324798,5,null,5),
